@@ -1,0 +1,11 @@
+data:
+  path: "./data/cleaned_data.csv"
+
+thresholds:
+  low_ctr: 0.01
+  roas_drop_pct: 0.2
+  min_impressions: 1000
+  confidence_cutoff: 0.6
+
+random:
+  seed: 42
