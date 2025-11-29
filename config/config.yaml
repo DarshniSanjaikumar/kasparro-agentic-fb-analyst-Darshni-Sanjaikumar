@@ -9,3 +9,13 @@ thresholds:
 
 random:
   seed: 42
+
+llm:
+  model: "llama-3.1-8b-instant"
+
+prompts:
+  planner: "prompts/planner_prompt.md"
+  data_summary: "prompts/data_summary_agent.md"
+  insight: "prompts/insight_prompt.md"
+  evaluator: "prompts/evaluator_prompt.md"
+  creative: "prompts/creative_prompt.md"
