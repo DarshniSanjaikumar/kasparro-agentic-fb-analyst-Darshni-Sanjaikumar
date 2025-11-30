@@ -1,223 +1,165 @@
-# Agent Graph — Kasparro Agentic FB Performance Analyst  
 
+# 🔄 Agent Architecture & Execution Flow  
+**Project:** Kasparro Agentic FB Ads Performance Analyst  
+**Author:** *<your_name_here>*  
 
----
-
-## 🎯 Overview
-
-This document describes the **agent architecture**, **data flow**, and **responsibilities** in the Agentic Facebook Performance Analyst System.
-
-The system goal is to autonomously:
-
-- Diagnose ROAS changes over time  
-- Explain the drivers behind performance fluctuations  
-- Generate new creative ideas for low-CTR campaigns  
+This document provides a complete architectural breakdown of the multi-agent system, explaining the role, input, output, and interactions between the agents. The goal is to create a fully autonomous intelligence pipeline for diagnosing Facebook Ads performance, validating insights, and generating optimized marketing strategies.
 
 ---
 
-## 🧠 High-Level Agent Flow
+## 📌 High-Level Agent Flow
 
 ```mermaid
-flowchart LR
-    UserQuery((User Query)) --> Planner
-    Planner --> DataAgent
-    DataAgent --> InsightAgent
-    InsightAgent --> Evaluator
-    Evaluator --> CreativeAgent
-    CreativeAgent --> ReportGenerator((Report.md))
+flowchart TD
+    UserInput(["🗣️ User Query"]) --> Planner["🧠 Planner Agent"]
+    Planner --> Data["📊 Data Agent"]
+    Data --> Insight["💡 Insight Agent"]
+    Insight --> Evaluator["🧪 Evaluator Agent"]
+    Evaluator --> Creative["🎨 Creative Agent"]
+    Creative --> FinalReport["📄 Final Report Generator"]
 
-    Evaluator --> ReportGenerator
-    InsightAgent --> ReportGenerator
+    Insight --> FinalReport
+    Evaluator --> FinalReport
+    Data --> FinalReport
 ```
 
 ---
 
-# 🔍 **Agent Responsibilities & I/O Schemas**
+# 🧩 Agent-Level Responsibilities
 
----
-
-## 🗺️ **1. Planner Agent**
-
-### **Responsibilities**
-- Read raw user query  
-- Convert it into structured tasks  
-- Determine what the system needs (ROAS analysis / creative generation / date range)  
-
-### **Input**
-- Natural language query (string)
-
-### **Output (JSON Schema)**
+## 1️⃣ Planner Agent — Query-to-Execution Designer
+**Purpose:** Converts natural user query into structured execution plan (pipeline).  
+**Input:** Raw text query from user  
+**Output (JSON):**
 ```json
 {
-  "objective": "Analyze ROAS drop",
-  "steps": [
-    "Load data",
-    "Summarize key metrics",
-    "Identify ROAS movement",
-    "Generate hypotheses",
-    "Validate hypotheses",
-    "Generate creatives"
-  ],
-  "needs_creatives": true,
-  "analysis_window_days": 30
+  "objective": "string",
+  "campaign_name": "string or list",
+  "analysis_window_days": 30,
+  "metrics_focus": ["roas", "ctr"],
+  "agent_flow": ["data_agent", "insight_agent", "evaluator_agent", "creative_agent"]
 }
 ```
+**Key Responsibilities:**
+✔ Detect intent (what, why, how, performance)  
+✔ Select required agents dynamically  
+✔ Extract campaign names, metrics, date filters  
 
 ---
 
-## 📊 **2. Data Agent**
-
-### **Responsibilities**
-- Load Cleaned.csv  
-- Apply metrics: ROAS, CTR, spend trends  
-- Summarize campaign-level performance  
-- Compute ROAS/CTR drops  
-- Produce a compact summary for the LLM
-
-### **Input**
-- Config settings (thresholds, data path)  
-- Optional: date range, platform, country filters
-
-### **Output (JSON Summary)**
+## 2️⃣ Data Agent — Performance Metrics Extractor
+**Purpose:** Loads dataset, applies filters, and generates structured analytics summary.  
+**Input:** Planner output (campaign name, days)  
+**Output:**
 ```json
 {
-  "overall_metrics": {
-    "avg_roas": 2.14,
-    "avg_ctr": 0.012
-  },
-  "roas_trend": [
-    { "date": "2024-01-01", "roas": 2.5 },
-    { "date": "2024-01-02", "roas": 2.1 }
-  ],
-  "top_roas_drops": [
-    {
-      "campaign": "Summer_Sale_01",
-      "roas_before": 3.1,
-      "roas_after": 1.2,
-      "drop_pct": 0.61
-    }
-  ],
-  "low_ctr_campaigns": [
-    {
-      "campaign": "Winter_Deals_03",
-      "ctr": 0.004,
-      "creative_message": "Limited time discount!"
-    }
-  ]
+  "campaign_summaries": {...},
+  "peak_spend_day": {...},
+  "peak_revenue_day": {...},
+  "daily_trends": [...],
+  "date_range": "2024-01-01 to 2024-01-30"
 }
 ```
+**Key Responsibilities:**
+✔ Apply campaign and date filtering  
+✔ Deliver trend-ready structured insights  
+✔ Prevent data overload to LLM  
 
 ---
 
-## 💡 **3. Insight Agent**
-
-### **Responsibilities**
-- Consume Data Agent summary  
-- Generate hypotheses using structured reasoning  
-- Look at CTR, spend, impressions, audience, creative  
-- Output concise hypotheses
-
-### **Input**
-- Data summary JSON  
-- System prompt (prompts/insight_prompt.md)
-
-### **Output Schema**
-```json
-[
-  {
-    "campaign": "Summer_Sale_01",
-    "hypothesis_id": "H1",
-    "hypothesis": "Creative fatigue led to ROAS decline",
-    "reasoning": "CTR dropped while impressions stayed high",
-    "metrics_considered": ["ctr", "impressions", "roas", "spend"],
-    "time_window": {
-      "before_period": "2024-01-01 to 2024-01-05",
-      "after_period": "2024-01-06 to 2024-01-10"
-    }
-  }
-]
-```
-
----
-
-## 🧪 **4. Evaluator Agent**
-
-### **Responsibilities**
-- Validate each hypothesis numerically  
-- Re-check CTR, spend, ROAS, impressions  
-- Assign confidence scores  
-- Determine if hypothesis is supported or contradicted  
-
-### **Input**
-- Hypotheses list  
-- Full metric data (from data_utils)
-
-### **Output Schema**
+## 3️⃣ Insight Agent — Hypothesis Builder
+**Purpose:** Generates data-backed hypotheses explaining performance changes.  
+**Input:** Planner objective + DataAgent summary  
+**Output:**
 ```json
 [
   {
     "hypothesis_id": "H1",
-    "validated": true,
-    "confidence": 0.78,
-    "evidence": {
-      "ctr_before": 0.015,
-      "ctr_after": 0.008,
-      "impressions_change_pct": 0.04,
-      "roas_change_pct": -0.61
-    },
-    "notes": "CTR and ROAS dropped significantly while impressions remained stable."
+    "campaign": "Men ComfortMax",
+    "hypothesis": "Creative fatigue causing CTR drop",
+    "metrics_considered": ["ctr", "impressions"],
+    "confidence_level": "high"
   }
 ]
 ```
+**Key Responsibilities:**
+✔ Detect abnormal trends (CTR drop, spend spike)  
+✔ Explain reasons behind performance changes  
+✔ Convert patterns into hypotheses  
 
 ---
 
-## 🎨 **5. Creative Improvement Agent**
-
-### **Responsibilities**
-- For campaigns with low CTR  
-- Analyze creative messaging  
-- Generate 3–5 improved ad variants  
-- Use angles: urgency, social proof, benefit, scarcity  
-
-### **Input**
-- Low CTR campaigns (from Data Agent)  
-- Creative message + audience details  
-- Prompt template (prompts/creative_prompt.md)
-
-### **Output Schema**
+## 4️⃣ Evaluator Agent — Hypothesis Validator
+**Purpose:** Tests hypotheses using real metrics to confirm or reject.  
+**Input:** InsightAgent output + data metrics  
+**Output:**
 ```json
 [
   {
-    "campaign": "Winter_Deals_03",
-    "new_creatives": [
-      {
-        "headline": "Winter Deals Ending Soon!",
-        "primary_text": "Your favorite picks now at 50% OFF. Don't miss out.",
-        "cta": "Shop Now",
-        "angle": "urgency"
-      }
-    ]
+    "hypothesis_id": "H1",
+    "verdict": "supported",
+    "confidence_level": "high",
+    "evidence": {...}
   }
 ]
 ```
+**Key Responsibilities:**
+✔ Validate correlations (spend vs ROAS, CTR vs results)  
+✔ Determine statistical accuracy  
+✔ Assign certainty confidence level  
 
 ---
 
-## 📘 **6. Report Generator**
-
-### **Responsibilities**
-- Convert all outputs into a readable human report  
-- Include:  
-  - ROAS change summary  
-  - Top validated insights  
-  - Confidence scores  
-  - Recommended creative ideas  
-
-### **Final Output**
-- `reports/report.md`  
-- `reports/insights.json`  
-- `reports/creatives.json`  
+## 5️⃣ Creative Agent — Optimization Strategy Designer
+**Purpose:** Converts validated insights into actionable creative strategies.  
+**Input:** Validated insights + performance weaknesses  
+**Output:**
+```json
+[
+  {
+    "campaign": "Men ComfortMax",
+    "hypothesis_id": "H1",
+    "problem_summary": "CTR dropped due to fatigue",
+    "creative_strategy": "Introduce fresh messaging",
+    "ad_copy_suggestions": [...],
+    "visual_suggestions": [...],
+    "audience_targeting_adjustments": [...]
+  }
+]
+```
+**Key Responsibilities:**
+✔ Propose ad copy variations  
+✔ Suggest visual refresh, targeting tweaks  
+✔ Align messaging with performance issue  
 
 ---
 
+## 6️⃣ Report Generator — Insight Consolidation
+**Purpose:** Compile all agent outputs into final marketing report.  
+**Input:** Planner, DataAgent, InsightAgent, Evaluator, Creative outputs  
+**Output Files:**
+| File | Description |
+|------|-------------|
+| `report.md` | Final business-friendly report |
+| `planner_output.json` | Execution pipeline |
+| `data_output.json` | Processed metrics summary |
+| `insights.json` | Hypothesis results |
+| `evaluation.json` | Validation outcomes |
+| `creatives.json` | Creative recommendations |
+
+---
+
+## 🚀 Final Conclusion
+
+| Agent | Core Purpose |
+|--------|--------------|
+| Planner | Understands request & builds execution plan |
+| Data Agent | Extracts structured performance metrics |
+| Insight Agent | Generates data-backed hypotheses |
+| Evaluator Agent | Validates hypotheses with evidence |
+| Creative Agent | Converts insights into action strategies |
+| Report Generator | Builds final report for marketers |
+
+---
+
+> 💡 This architecture enables **autonomous, insight-driven marketing intelligence**—transforming raw ad data into optimized creative solutions with full explainability.

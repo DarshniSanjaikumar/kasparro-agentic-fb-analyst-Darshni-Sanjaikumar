@@ -1,0 +1,14 @@
+{
+    "agent": "DataAgent",
+    "status": "success",
+    "duration_sec": 0.1,
+    "timestamp": "2025-11-30T06:12:00.222197",
+    "output_preview": [
+        "campaigns_requested",
+        "date_range",
+        "campaign_summaries",
+        "peak_spend_day",
+        "peak_revenue_day",
+        "daily_trends"
+    ]
+}

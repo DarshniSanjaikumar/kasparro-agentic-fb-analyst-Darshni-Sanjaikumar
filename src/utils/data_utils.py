@@ -1,100 +1,44 @@
 import pandas as pd
-from datetime import datetime, timedelta
+from typing import Optional
+from src.utils.logging_utils import log_info, log_error
 
-class DataUtils:
-    def __init__(self, csv_path: str):
-        self.csv_path = csv_path
 
-    def load_data(self):
-        df = pd.read_csv(self.csv_path)
+def load_csv_data(file_path: str) -> Optional[pd.DataFrame]:
+    """
+    Loads a CSV file into a cleaned pandas DataFrame.
+    
+    Enhancements:
+    - Validates file existence and readability
+    - Normalizes column names (lowercase, trim spaces)
+    - Converts 'date' column to datetime format (if present)
+    - Adds robust logging for success and failure
+    - Returns None instead of empty DataFrame on critical failure
+    """
+    try:
+        # Load the CSV file
+        df = pd.read_csv(file_path)
 
-        # Fix datetime
+        # Standardize column names
+        df.columns = df.columns.str.lower().str.strip()
+
+        # Convert date column (if present)
         if "date" in df.columns:
-            df["date"] = pd.to_datetime(df["date"])
+            df["date"] = pd.to_datetime(df["date"], errors="coerce")
 
-        # Fill basic nulls
-        df = df.fillna({
-            "spend": 0,
-            "impressions": 0,
-            "clicks": 0,
-            "purchases": 0,
-            "revenue": 0,
-            "roas": 0,
-            "ctr": 0
-        })
-
+        log_info(
+            f"📄 Successfully loaded dataset: {file_path} | "
+            f"Rows: {len(df)} | Columns: {list(df.columns)}"
+        )
         return df
 
-    def filter_by_date(self, df, days: int):
-        """Select only the last X days of data."""
-        max_date = df["date"].max()
-        start_date = max_date - timedelta(days=days)
-        return df[(df["date"] >= start_date) & (df["date"] <= max_date)]
+    except FileNotFoundError:
+        log_error(f"❌ File not found: {file_path}")
+        return None
 
-    def group_by_date(self, df):
-        """Daily-level metrics."""
-        return (
-            df.groupby("date")
-            .agg({
-                "spend": "sum",
-                "impressions": "sum",
-                "clicks": "sum",
-                "purchases": "sum",
-                "revenue": "sum",
-                "ctr": "mean",
-                "roas": "mean",
-            })
-            .reset_index()
-        )
+    except pd.errors.EmptyDataError:
+        log_error(f"⚠ Empty CSV file: {file_path}")
+        return None
 
-    def group_by_campaign(self, df):
-        """Campaign-level aggregated metrics."""
-        return (
-            df.groupby("campaign_name")
-            .agg({
-                "spend": "sum",
-                "impressions": "sum",
-                "clicks": "sum",
-                "purchases": "sum",
-                "revenue": "sum",
-                "ctr": "mean",
-                "roas": "mean",
-            })
-            .reset_index()
-        )
-
-    def group_by_audience(self, df):
-        return (
-            df.groupby("audience_type")
-            .agg({
-                "spend": "sum",
-                "impressions": "sum",
-                "clicks": "sum",
-                "purchases": "sum",
-                "revenue": "sum",
-                "ctr": "mean",
-                "roas": "mean",
-            })
-            .reset_index()
-        )
-    def summarize_overall(self, df):
-        total_spend = df["spend"].sum()
-        total_revenue = df["revenue"].sum()
-        total_clicks = df["clicks"].sum()
-        total_impressions = df["impressions"].sum()
-        total_purchases = df["purchases"].sum()
-
-        overall_summary = {
-            "total_spend": total_spend,
-            "total_revenue": total_revenue,
-            "total_clicks": total_clicks,
-            "total_impressions": total_impressions,
-            "total_purchases": total_purchases,
-            "overall_roas": total_revenue / total_spend if total_spend > 0 else 0,
-            "overall_ctr": total_clicks / total_impressions if total_impressions > 0 else 0,
-        }
-
-        return overall_summary
-    def summarize_by_campaign(self, df):
-        campaign_summary = self.group_by_campaign(df)
-        return campaign_summary
+    except Exception as e:
+        log_error(f"🚨 Error loading CSV ({file_path}): {str(e)}")
+        return None

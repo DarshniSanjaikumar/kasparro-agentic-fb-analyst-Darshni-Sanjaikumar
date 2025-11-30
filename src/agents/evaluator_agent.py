@@ -1,53 +1,58 @@
-# src/agents/evaluator_agent.py
-
 import json
-from src.utils.metrics import pct_change
+import re
+from src.utils.logging_utils import log_info, log_error
+from src.utils.llm import GeminiLLM
+
+
+def extract_json(text):
+    """Extracts valid JSON from AI response even if wrapped inside markdown or text."""
+    text = text.replace("```json", "").replace("```", "").strip()
+    match = re.search(r"\[.*\]", text, re.DOTALL)  # Expecting list format
+    if match:
+        return match.group(0).strip()
+    return text
+
 
 class EvaluatorAgent:
-    def __init__(self, df, llm=None, prompt_path="prompts/evaluator_prompt.md"):
-        self.df = df
-        self.llm = llm
-        self.prompt = open(prompt_path, "r", encoding="utf-8").read()
+    def __init__(self, model_name="gemini-2.5-flash"):
+        self.llm = GeminiLLM(model_name=model_name)
 
-    def validate_one(self, h):
-        campaign = h.get("campaign")
-        if not campaign:
-            return {
-                "hypothesis_id": h.get("hypothesis_id", "unknown"),
-                "validated": False,
-                "confidence": 0.1,
-                "notes": "Missing campaign name"
-            }
+    def run(self, objective, data_agent_output, insight_output):
+        """
+        Receives planner objective, structured DataAgent output, 
+        and InsightAgent hypotheses to validate whether
+        the insights are supported by actual evidence.
+        """
 
-        subset = self.df[self.df["campaign_name"] == campaign]
-        if len(subset) < 3:
-            return {
-                "hypothesis_id": h.get("hypothesis_id"),
-                "validated": False,
-                "confidence": 0.15,
-                "notes": "Not enough rows to validate"
-            }
+        try:
+            log_info("Running EvaluatorAgent to validate insights...")
 
-        half = len(subset) // 2
-        before = subset.iloc[:half]
-        after = subset.iloc[half:]
+            # Load evaluator prompt template
+            with open("prompts/evaluator.md", "r", encoding="utf-8") as f:
+                prompt_template = f.read()
 
-        evidence = {
-            "ctr_change_pct": pct_change(before["ctr"].mean(), after["ctr"].mean()),
-            "roas_change_pct": pct_change(before["roas"].mean(), after["roas"].mean()),
-            "spend_change_pct": pct_change(before["spend"].mean(), after["spend"].mean()),
-        }
+            # Construct LLM prompt
+            final_prompt = (
+                prompt_template
+                + "\n\n📌 Planner Objective:\n"
+                + json.dumps(objective, indent=2)
+                + "\n\n📊 Structured Data Summary:\n"
+                + json.dumps(data_agent_output, indent=2)
+                + "\n\n💡 Hypotheses to Evaluate:\n"
+                + json.dumps(insight_output, indent=2)
+            )
 
-        validated = evidence["roas_change_pct"] < 0
-        confidence = min(1, max(0.1, abs(evidence["roas_change_pct"]) / 0.5))
+            # Call to LLM
+            llm_response = self.llm.llm_call(final_prompt)
 
-        return {
-            "hypothesis_id": h["hypothesis_id"],
-            "validated": validated,
-            "confidence": round(confidence, 2),
-            "evidence": evidence,
-            "notes": "Supported by data" if validated else "Weak support"
-        }
+            # Extract JSON from AI output
+            try:
+                clean_json = extract_json(llm_response)
+                return json.loads(clean_json)
+            except json.JSONDecodeError:
+                log_error("EvaluatorAgent: Invalid JSON returned.")
+                return {"error": "EvaluatorAgent: Invalid LLM output", "raw_output": llm_response}
 
-    def run(self, hypotheses):
-        return [self.validate_one(h) for h in hypotheses]
+        except Exception as e:
+            log_error(f"EvaluatorAgent failed: {str(e)}")
+            return {"error": "EvaluatorAgent runtime failure", "details": str(e)}

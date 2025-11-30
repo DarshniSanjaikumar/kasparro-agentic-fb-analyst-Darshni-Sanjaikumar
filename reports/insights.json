@@ -1,0 +1,47 @@
+[
+    {
+        "hypothesis_id": "H1",
+        "campaign": "men bold colors drop",
+        "issue": "Low Click-Through Rate (CTR) suggests creative fatigue or poor ad relevance.",
+        "reasoning": "The 'men bold colors drop' campaign consistently displays CTRs significantly below the overall average of 0.013, frequently ranging from 0.004 to 0.010 throughout the observed period (March 2025). This sustained low engagement indicates that the existing ad creatives may no longer be effectively capturing audience attention or compelling users to click, possibly due to overexposure or a lack of fresh messaging.",
+        "metrics_considered": [
+            "ctr"
+        ],
+        "confidence_level": "high",
+        "impact": "critical",
+        "time_window": {
+            "start": "2025-03-01",
+            "end": "2025-03-31"
+        }
+    },
+    {
+        "hypothesis_id": "H2",
+        "campaign": "women seamless everyday",
+        "issue": "Sub-optimal CTR indicates creative-audience mismatch or unengaging ad visuals.",
+        "reasoning": "The 'women seamless everyday' campaign shows a persistent pattern of low CTRs, often falling between 0.006 and 0.009. This suggests that the current ad creatives are either not effectively communicating the product's value proposition, or the visuals and messaging are not resonating strongly enough with the targeted audience segments, leading to low click-through rates.",
+        "metrics_considered": [
+            "ctr"
+        ],
+        "confidence_level": "medium",
+        "impact": "high",
+        "time_window": {
+            "start": "2025-03-01",
+            "end": "2025-03-31"
+        }
+    },
+    {
+        "hypothesis_id": "H3",
+        "campaign": "women cotton classics",
+        "issue": "Poor creative performance is driving consistently low CTRs for the campaign.",
+        "reasoning": "Throughout March 2025, the 'women cotton classics' campaign frequently records CTR values below the global average, sometimes dropping to 0.005-0.007. This pattern strongly implies that the current ad creatives are failing to capture audience interest or provide a compelling reason to click, pointing towards issues with visual appeal, headline effectiveness, or the call-to-action.",
+        "metrics_considered": [
+            "ctr"
+        ],
+        "confidence_level": "medium",
+        "impact": "high",
+        "time_window": {
+            "start": "2025-03-01",
+            "end": "2025-03-31"
+        }
+    }
+]

@@ -1,301 +1,142 @@
-# src/orchestrator/run.py
-"""
-Full orchestrator for the Kasparro Agentic FB Analyst pipeline.
-
-Features:
-- Instantiates a single LLM instance and injects it into agents
-- Runs Planner -> Data -> Insight -> Evaluator -> Creative
-- Saves: reports/insights.json, reports/creatives.json, reports/report.md
-- Writes structured run log to logs/run_<timestamp>.json
-- Prints concise colored console output
-- Robust error handling and timing for each agent step
-"""
-
-import os
-import sys
 import json
-import time
-import traceback
+import os
 from datetime import datetime
-from typing import Any, Dict
-
-# config parsing
-import yaml
-
-# Ensure repo-root relative behavior works when calling from project root
-ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-os.chdir(ROOT)
-
-# Local imports (match your project structure)
-from src.utils.llm import LLM
-from src.utils.data_utils import DataUtils
-# If you prefer to use config_reader, you can modify this to import it instead.
-# from src.utils.config_reader import load_config
-DataUtils_instance = DataUtils("./data/cleaned_data.csv")
-load_data = DataUtils_instance.load_data
-
-from src.agents.planner import PlannerAgent
+from src.agents.planner_agent import PlannerAgent
 from src.agents.data_agent import DataAgent
 from src.agents.insight_agent import InsightAgent
 from src.agents.evaluator_agent import EvaluatorAgent
 from src.agents.creative_agent import CreativeAgent
+from src.utils.logging_utils import Logger, log_info, log_error
 
-# ---- Helpers ----
 
-def ensure_dir(path: str):
-    if not os.path.exists(path):
-        os.makedirs(path, exist_ok=True)
+def save_output(filename, content, folder="reports"):
+    """Save agent outputs to /reports folder."""
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, filename)
 
-def now_ts() -> str:
-    return datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
-
-def pretty_print(msg: str, level: str = "info"):
-    """
-    Minimal pretty printing using ANSI colors.
-    level -> info, success, warn, error
-    """
-    colors = {
-        "info": "\033[94m",     # blue
-        "success": "\033[92m",  # green
-        "warn": "\033[93m",     # yellow
-        "error": "\033[91m",    # red
-    }
-    end = "\033[0m"
-    color = colors.get(level, colors["info"])
-    print(f"{color}{msg}{end}")
-
-def safe_write_json(path: str, data: Any):
     with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+        if filename.endswith(".json"):
+            json.dump(content, f, indent=4)
+        else:
+            f.write(content)
 
-def safe_read_yaml(path: str) -> Dict:
-    with open(path, "r", encoding="utf-8") as f:
-        return yaml.safe_load(f)
+    print(f"📁 Saved: {path}")
+    return path
 
-# ---- Orchestrator ----
 
-def build_report_md(insights_validated, creatives, summary_meta) -> str:
-    """
-    Build a simple markdown report summarizing key findings.
-    """
-    lines = []
-    lines.append(f"# Automated ROAS Analysis Report")
-    lines.append("")
-    lines.append(f"- **Run timestamp (UTC):** {summary_meta.get('run_timestamp')}")
-    lines.append(f"- **User query:** {summary_meta.get('user_query')}")
-    lines.append(f"- **Top ROAS drops (count):** {len(summary_meta.get('top_roas_drops', []))}")
-    lines.append("")
-    lines.append("## Validated Hypotheses (summary)")
-    if not insights_validated:
-        lines.append("No validated hypotheses found.")
-    else:
-        for h in insights_validated:
-            hid = h.get("hypothesis_id", "N/A")
-            validated = h.get("validated", False)
-            conf = h.get("confidence", 0)
-            notes = h.get("notes", "")
-            lines.append(f"### {hid} — {'✅' if validated else '❌'} (confidence: {conf})")
-            lines.append("")
-            lines.append(f"- **Notes:** {notes}")
-            lines.append("- **Evidence:**")
-            ev = h.get("evidence", {})
-            if ev:
-                for k, v in ev.items():
-                    lines.append(f"  - {k}: {v}")
-            lines.append("")
-    lines.append("## Creative Recommendations")
-    if creatives:
-        for c in creatives:
-            lines.append(f"### Campaign: {c.get('campaign')}")
-            for n in c.get("new_creatives", []):
-                lines.append(f"- **Headline:** {n.get('headline')}")
-                lines.append(f"  - Text: {n.get('text')}")
-                lines.append(f"  - CTA: {n.get('cta')}")
-                lines.append(f"  - Angle: {n.get('angle')}")
-            lines.append("")
-    else:
-        lines.append("No creatives generated.")
-    return "\n".join(lines)
+def display_banner():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(r"""                                         
+            ▄▄▄   ▄▄▄                                           
+            ███ ▄███▀                                           
+            ███████    ▀▀█▄ ▄█▀▀▀ ████▄  ▀▀█▄ ████▄ ████▄ ▄███▄ 
+            ███▀███▄  ▄█▀██ ▀███▄ ██ ██ ▄█▀██ ██ ▀▀ ██ ▀▀ ██ ██ 
+            ███  ▀███ ▀█▄██ ▄▄▄█▀ ████▀ ▀█▄██ ██    ██    ▀███▀ 
+                                  ██                            
+                                  ▀▀                            
+          """)
+    print(" 📊 Kasparro Agentic FB Ad Performance Analyzer")
+    print(" 🤖 Multi-Agent Reasoning System")
+    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
 
-def run_pipeline(user_query: str, config_path: str = "config/config.yaml"):
-    run_start = time.perf_counter()
-    ts = now_ts()
-    run_id = f"run_{ts}"
 
-    # Ensure directories exist
-    ensure_dir("reports")
-    ensure_dir("logs")
+def main():
+    display_banner()
+    logger = Logger(log_folder="logs")
 
-    # Prepare run log skeleton
-    run_log = {
-        "run_id": run_id,
-        "run_timestamp": ts,
-        "user_query": user_query,
-        "agents": {},
-        "errors": [],
-        "summary": {}
-    }
+    # User input
+    user_query = input("\n💬 Enter your analysis request:\n> ").strip()
+
+    outputs = {}
 
     try:
-        pretty_print("Loading config...", "info")
-        config = safe_read_yaml(config_path)
+        # 🧠 Planner Agent
+        logger.start("PlannerAgent")
+        planner_agent = PlannerAgent()
+        print("🧠 Planner Agent Initialized...")
+        planner_output = planner_agent.run(user_query)
+        logger.end(extra={"output_preview": planner_output})
+        save_output("planner_output.json", planner_output)
+        outputs["planner"] = planner_output
 
-        # Instantiate single LLM instance
-        pretty_print("Initializing LLM...", "info")
-        try:
-            llm_model = config.get("llm", {}).get("model", "llama-3.1-8b-instant")
-        except Exception:
-            llm_model = "llama-3.1-8b-instant"
+        # Determine agent execution flow
+        agent_flow = planner_output.get("agent_flow", ["data_agent"])
+        print(f"\n🔀 Pipeline: {agent_flow}")
 
-        llm = LLM(model=llm_model)
+        # 📊 Data Agent
+        logger.start("DataAgent")
+        data_agent = DataAgent()
+        data_output = data_agent.run(planner_output)
+        logger.end(extra={"output_preview": list(data_output.keys())})
+        save_output("data_output.json", data_output)
+        outputs["data"] = data_output
 
-        # Initialize agents
-        planner = PlannerAgent(llm, prompt_path=config.get("prompts", {}).get("planner", "prompts/planner_prompt.md"))
-        data_agent = DataAgent(config=config, llm=llm, prompt_path=config.get("prompts", {}).get("data_summary", "prompts/data_summary_agent.md"))
-        insight_agent = InsightAgent(llm, prompt_path=config.get("prompts", {}).get("insight", "prompts/insight_prompt.md"))
+        insight_output, eval_output, creative_output = None, None, None
 
-        # Load raw DF for evaluator (the evaluator uses raw metrics to validate)
-        pretty_print("Loading raw dataset for evaluator...", "info")
-        from src.utils.data_utils import DataUtils
+        # 🔁 Process remaining agents sequentially
+        for agent in agent_flow[1:]:
+            
+            if agent == "insight_agent":
+                logger.start("InsightAgent")
+                insight_agent = InsightAgent()
+                insight_output = insight_agent.run(
+                    data_agent_output=data_output,
+                    objective=planner_output.get("objective")
+                )
+                logger.end(extra={"hypotheses_count": len(insight_output) if insight_output else 0})
+                save_output("insights.json", insight_output)
+                outputs["insight"] = insight_output
 
-        utils = DataUtils(config["data"]["path"])
-        df = utils.load_data()
+            elif agent == "evaluator_agent":
+                if not insight_output:
+                    log_error("EvaluatorAgent skipped — No insights to evaluate.")
+                    continue
+                logger.start("EvaluatorAgent")
+                evaluator_agent = EvaluatorAgent()
+                eval_output = evaluator_agent.run(
+                    objective=planner_output.get("objective"),
+                    data_agent_output=data_output,
+                    insight_output=insight_output
+                )
+                logger.end(extra={"validated_hypotheses": len(eval_output) if eval_output else 0})
+                save_output("evaluation.json", eval_output)
+                outputs["evaluator"] = eval_output
 
-        evaluator = EvaluatorAgent(df, llm=llm, prompt_path=config.get("prompts", {}).get("evaluator", "prompts/evaluator_prompt.md"))
-        creative_agent = CreativeAgent(llm, prompt_path=config.get("prompts", {}).get("creative", "prompts/creative_prompt.md"))
+            elif agent == "creative_agent":
+                if not insight_output:
+                    log_error("CreativeAgent skipped — No validated insights available.")
+                    continue
+                logger.start("CreativeAgent")
+                creative_agent = CreativeAgent()
+                creative_output = creative_agent.run(
+                    objective=planner_output.get("objective"),
+                    insight_output=insight_output,
+                    data_agent_output=data_output
+                )
+                logger.end(extra={"recommendation_count": len(creative_output) if creative_output else 0})
+                save_output("creatives.json", creative_output)
+                outputs["creative"] = creative_output
 
-        # 1) Planner
-        pretty_print("Running PlannerAgent...", "info")
-        t0 = time.perf_counter()
-        plan = planner.run(user_query)
-        t1 = time.perf_counter()
-        run_log["agents"]["planner"] = {
-            "duration_s": round(t1 - t0, 3),
-            "output_summary": {
-                "tasks": plan.get("tasks", []),
-                "needs_creatives": plan.get("needs_creatives", False),
-                "analysis_window_days": plan.get("analysis_window_days", None)
-            }
-        }
-        pretty_print(f"Planner done — tasks: {plan.get('tasks', [])}", "success")
+        # 📝 Generate Final Report
+        report_path = os.path.join("reports", "report.md")
+        with open(report_path, "w", encoding="utf-8") as f:
+            f.write("# 📊 Facebook Ads Performance Analysis Report\n\n")
+            f.write(f"🕒 Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"💬 Query: {user_query}\n\n---\n")
 
-        # 2) Data agent
-        pretty_print("Running DataAgent...", "info")
-        t0 = time.perf_counter()
-        data_summary = data_agent.run()
-        t1 = time.perf_counter()
-        run_log["agents"]["data_agent"] = {
-            "duration_s": round(t1 - t0, 3),
-            "top_roas_drops": data_summary.get("top_roas_drops", [])[:5],
-            "low_ctr_campaign_count": len(data_summary.get("low_ctr_campaigns", []))
-        }
-        pretty_print("DataAgent done.", "success")
+            for agent_name, output in outputs.items():
+                f.write(f"## 🔹 {agent_name.capitalize()} Output\n")
+                f.write("```json\n")
+                f.write(json.dumps(output, indent=4))
+                f.write("\n```\n")
 
-        # 3) Insight agent
-        pretty_print("Running InsightAgent...", "info")
-        t0 = time.perf_counter()
-        insights = insight_agent.run(data_summary, user_query)
-        t1 = time.perf_counter()
-        run_log["agents"]["insight_agent"] = {
-            "duration_s": round(t1 - t0, 3),
-            "hypotheses_count": len(insights) if isinstance(insights, list) else 0
-        }
-        pretty_print(f"InsightAgent produced {len(insights)} hypothesis/hypotheses.", "success")
+        save_output("final_complete_output.json", outputs)
+        print("\n🎯 Analysis completed successfully!")
 
-        # 4) Evaluator agent
-        pretty_print("Running EvaluatorAgent...", "info")
-        t0 = time.perf_counter()
-        validated = evaluator.run(insights)
-        t1 = time.perf_counter()
-        run_log["agents"]["evaluator_agent"] = {
-            "duration_s": round(t1 - t0, 3),
-            "validated_count": len(validated)
-        }
-        pretty_print("EvaluatorAgent done.", "success")
+    except Exception as e:
+        log_error(f"❌ Orchestrator failure: {e}")
+        save_output("orchestrator_error.json", {"error": str(e)})
 
-        # 5) Creative agent (if planner says so OR if low-ctr list non-empty)
-        creatives = None
-        needs_creatives = bool(plan.get("needs_creatives", False))
-        low_ctr_list = data_summary.get("low_ctr_campaigns", [])
-        if needs_creatives or low_ctr_list:
-            pretty_print("Running CreativeAgent...", "info")
-            t0 = time.perf_counter()
-            creatives = creative_agent.run(low_ctr_list)
-            t1 = time.perf_counter()
-            run_log["agents"]["creative_agent"] = {
-                "duration_s": round(t1 - t0, 3),
-                "generated_for": len(creatives)
-            }
-            pretty_print(f"CreativeAgent generated creatives for {len(creatives)} campaigns.", "success")
-        else:
-            pretty_print("Creative generation skipped (not requested and no low-CTR campaigns).", "warn")
 
-        # Save artifacts
-        pretty_print("Saving outputs to reports/ ...", "info")
-        insights_path = os.path.join("reports", f"insights_{ts}.json")
-        creatives_path = os.path.join("reports", f"creatives_{ts}.json")
-        report_md_path = os.path.join("reports", f"report_{ts}.md")
-
-        safe_write_json(insights_path, validated)
-        if creatives is not None:
-            safe_write_json(creatives_path, creatives)
-        # Create the final markdown report
-        report_md = build_report_md(validated, creatives, {
-            "run_timestamp": ts,
-            "user_query": user_query,
-            "top_roas_drops": data_summary.get("top_roas_drops", [])
-        })
-        with open(report_md_path, "w", encoding="utf-8") as f:
-            f.write(report_md)
-
-        # Populate run summary
-        run_log["summary"] = {
-            "insights_path": insights_path,
-            "creatives_path": creatives_path if creatives is not None else None,
-            "report_md_path": report_md_path,
-            "total_duration_s": round(time.perf_counter() - run_start, 3)
-        }
-
-        # Save run log
-        run_log_path = os.path.join("logs", f"{run_id}.json")
-        safe_write_json(run_log_path, run_log)
-
-        pretty_print(f"Run complete. Artifacts saved to reports/ and logs/ ({run_id}).", "success")
-        pretty_print(f"Insights file: {insights_path}", "info")
-        if creatives is not None:
-            pretty_print(f"Creatives file: {creatives_path}", "info")
-        pretty_print(f"Report: {report_md_path}", "info")
-        pretty_print(f"Run log: {run_log_path}", "info")
-
-        return True
-
-    except Exception as err:
-        err_trace = traceback.format_exc()
-        run_log["errors"].append({
-            "error": str(err),
-            "traceback": err_trace
-        })
-        # Ensure we still write the run log for debugging
-        run_log_path = os.path.join("logs", f"{run_id}_error.json")
-        safe_write_json(run_log_path, run_log)
-        pretty_print("Pipeline failed — see logs for details.", "error")
-        pretty_print(str(err), "error")
-        return False
-
-# ---- CLI ----
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        user_q = " ".join(sys.argv[1:])
-    else:
-        user_q = "Analyze ROAS drop and propose creatives"
-
-    cfg_path = "config/config.yaml"
-    if not os.path.exists(cfg_path):
-        pretty_print(f"Config file not found at {cfg_path}. Please add config/config.yaml", "error")
-        sys.exit(1)
-
-    success = run_pipeline(user_q, config_path=cfg_path)
-    if success:
-        sys.exit(0)
-    else:
-        sys.exit(2)
+    main()

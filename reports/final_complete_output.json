@@ -1,0 +1,5020 @@
+{
+    "planner": {
+        "objective": "Suggest creatives to improve low CTR ads",
+        "steps": [
+            "data_loading",
+            "filter_low_ctr_ads",
+            "insight_generation",
+            "creative_recommendation"
+        ],
+        "campaign_name": null,
+        "analysis_window_days": 30,
+        "metrics_focus": [
+            "ctr"
+        ],
+        "agent_flow": [
+            "data_agent",
+            "insight_agent",
+            "creative_agent"
+        ]
+    },
+    "data": {
+        "campaigns_requested": "All campaigns",
+        "date_range": "2025-03-01 to 2025-03-31",
+        "campaign_summaries": {
+            "total_spend": 745352.39,
+            "total_revenue": 4190393.24,
+            "avg_roas": 9.21,
+            "avg_ctr": 0.013,
+            "total_clicks": 5162958,
+            "total_impressions": 405996915,
+            "total_purchases": 112781
+        },
+        "peak_spend_day": {
+            "date": "2025-03-22 00:00:00",
+            "campaign_name": "Men-Athleisure Cooling",
+            "spend": 1459.86
+        },
+        "peak_revenue_day": {
+            "date": "2025-03-17 00:00:00",
+            "campaign_name": "Men  |  Athleisure  Cooling",
+            "revenue": 18579.01
+        },
+        "daily_trends": [
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 859.23,
+                "spend": 745.24,
+                "roas": 1.15,
+                "ctr": 0.0137
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 8871.630000000001,
+                "spend": 1923.1399999999999,
+                "roas": 8.2175,
+                "ctr": 0.014175
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 11536.630000000001,
+                "spend": 2424.68,
+                "roas": 11.0625,
+                "ctr": 0.010875
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 4001.58,
+                "spend": 1967.85,
+                "roas": 4.216,
+                "ctr": 0.01422
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 15817.669999999998,
+                "spend": 1739.72,
+                "roas": 13.356666666666667,
+                "ctr": 0.0202
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 677.76,
+                "spend": 979.12,
+                "roas": 0.69,
+                "ctr": 0.0145
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 4019.9700000000003,
+                "spend": 2079.02,
+                "roas": 3.1975000000000002,
+                "ctr": 0.010275
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 822.72,
+                "spend": 265.7,
+                "roas": 3.1,
+                "ctr": 0.011
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 1043.34,
+                "spend": 562.32,
+                "roas": 1.86,
+                "ctr": 0.0173
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 9475.38,
+                "spend": 202.25,
+                "roas": 46.85,
+                "ctr": 0.0234
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women co-ton classics",
+                "revenue": 313.13,
+                "spend": 434.2,
+                "roas": 0.72,
+                "ctr": 0.0058
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 16749.65,
+                "spend": 1444.4599999999998,
+                "roas": 16.575,
+                "ctr": 0.0129
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 7147.98,
+                "spend": 1783.49,
+                "roas": 9.4875,
+                "ctr": 0.0178
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 3042.82,
+                "spend": 577.79,
+                "roas": 5.27,
+                "ctr": 0.0218
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 15990.289999999999,
+                "spend": 2467.67,
+                "roas": 5.444,
+                "ctr": 0.00836
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 13674.23,
+                "spend": 2369.8900000000003,
+                "roas": 10.966000000000001,
+                "ctr": 0.00884
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women | studio spo-ts",
+                "revenue": 3181.01,
+                "spend": 904.28,
+                "roas": 3.52,
+                "ctr": 0.0095
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 9156.05,
+                "spend": 2752.87,
+                "roas": 3.7475,
+                "ctr": 0.01125
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 448.65,
+                "spend": 218.22,
+                "roas": 2.06,
+                "ctr": 0.0059
+            },
+            {
+                "date": "2025-03-01",
+                "campaign_name_clean": "women_otton_classics",
+                "revenue": 9846.16,
+                "spend": 684.86,
+                "roas": 14.38,
+                "ctr": 0.012
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men bold col-rs drop",
+                "revenue": 931.43,
+                "spend": 58.25,
+                "roas": 15.99,
+                "ctr": 0.0084
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4294.48,
+                "spend": 2251.23,
+                "roas": 2.473333333333333,
+                "ctr": 0.008966666666666666
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 14859.84,
+                "spend": 1095.07,
+                "roas": 63.30400000000001,
+                "ctr": 0.01446
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 5964.5,
+                "spend": 1679.34,
+                "roas": 4.004,
+                "ctr": 0.01114
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 6027.099999999999,
+                "spend": 2130.09,
+                "roas": 4.446,
+                "ctr": 0.01626
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 40671.5412,
+                "spend": 2181.04,
+                "roas": 25.594,
+                "ctr": 0.02022
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 618.52,
+                "spend": 889.45,
+                "roas": 0.7,
+                "ctr": 0.0089
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 19449.059999999998,
+                "spend": 797.47,
+                "roas": 37.975,
+                "ctr": 0.009475
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 9522.65,
+                "spend": 2073.39,
+                "roas": 4.742500000000001,
+                "ctr": 0.018349999999999998
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 284.82,
+                "spend": 574.46,
+                "roas": 0.5,
+                "ctr": 0.0152
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 7347.74,
+                "spend": 2390.03,
+                "roas": 4.276,
+                "ctr": 0.00686
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 10937.58,
+                "spend": 3007.26,
+                "roas": 3.982,
+                "ctr": 0.010280000000000001
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 18001.74,
+                "spend": 441.21000000000004,
+                "roas": 66.14,
+                "ctr": 0.01175
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 9095.59,
+                "spend": 782.49,
+                "roas": 17.265,
+                "ctr": 0.0127
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 3236.87,
+                "spend": 172.17,
+                "roas": 18.8,
+                "ctr": 0.0085
+            },
+            {
+                "date": "2025-03-02",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 370.54,
+                "spend": 212.28,
+                "roas": 1.75,
+                "ctr": 0.0094
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "-omen_|_studio_sports",
+                "revenue": 3562.84,
+                "spend": 135.68,
+                "roas": 26.26,
+                "ctr": 0.0114
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men athleisure cooling",
+                "revenue": 1854.93,
+                "spend": 182.87,
+                "roas": 10.14,
+                "ctr": 0.0215
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3133.5778,
+                "spend": 2548.82,
+                "roas": 1.77,
+                "ctr": 0.008499999999999999
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 20447.52,
+                "spend": 2403.83,
+                "roas": 14.735999999999999,
+                "ctr": 0.01924
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 6671.11,
+                "spend": 1323.69,
+                "roas": 5.315,
+                "ctr": 0.0084
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men si-nature soft",
+                "revenue": 955.35,
+                "spend": 979.15,
+                "roas": 0.98,
+                "ctr": 0.0187
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 1362.43,
+                "spend": 947.1700000000001,
+                "roas": 2.13,
+                "ctr": 0.01465
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 16151.529999999999,
+                "spend": 1078.06,
+                "roas": 32.25,
+                "ctr": 0.0171
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men- premium modal",
+                "revenue": 2446.52,
+                "spend": 176.92,
+                "roas": 13.83,
+                "ctr": 0.0081
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 1547.2800000000002,
+                "spend": 914.6999999999999,
+                "roas": 2.355,
+                "ctr": 0.0074
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 1277.36,
+                "spend": 664.26,
+                "roas": 1.66,
+                "ctr": 0.0124
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 14488.44,
+                "spend": 268.6,
+                "roas": 53.94,
+                "ctr": 0.0252
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "w men cotton classics",
+                "revenue": 11639.04,
+                "spend": 753.63,
+                "roas": 15.44,
+                "ctr": 0.0088
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 11643.1,
+                "spend": 2981.15,
+                "roas": 4.62,
+                "ctr": 0.01045
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 3832.7700000000004,
+                "spend": 1762.54,
+                "roas": 2.7925,
+                "ctr": 0.016075
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 2159.38,
+                "spend": 897.49,
+                "roas": 2.41,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 7774.739,
+                "spend": 1326.4,
+                "roas": 7.25,
+                "ctr": 0.007925000000000001
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women seamless- everyday",
+                "revenue": 2029.66,
+                "spend": 1301.0641025641023,
+                "roas": 1.56,
+                "ctr": 0.0086
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 7570.59,
+                "spend": 2104.83,
+                "roas": 9.22,
+                "ctr": 0.011525
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 13945.16,
+                "spend": 1959.39,
+                "roas": 15.669999999999998,
+                "ctr": 0.009975000000000001
+            },
+            {
+                "date": "2025-03-03",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 1208.98,
+                "spend": 389.64,
+                "roas": 3.1,
+                "ctr": 0.0104
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2725.93,
+                "spend": 1866.31,
+                "roas": 1.9474999999999998,
+                "ctr": 0.00955
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 9430.44,
+                "spend": 1513.94,
+                "roas": 5.21,
+                "ctr": 0.013600000000000001
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 3937.11,
+                "spend": 2067.82,
+                "roas": 1.89,
+                "ctr": 0.00856
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 2651.0699999999997,
+                "spend": 2667.6344444444444,
+                "roas": 1.1640000000000001,
+                "ctr": 0.0142
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 26526.89,
+                "spend": 1430.12,
+                "roas": 18.9225,
+                "ctr": 0.017849999999999998
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 414.43,
+                "spend": 798.75,
+                "roas": 0.52,
+                "ctr": 0.0097
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 15427.87,
+                "spend": 2031.92,
+                "roas": 7.105,
+                "ctr": 0.019450000000000002
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 1481.93,
+                "spend": 374.53,
+                "roas": 3.96,
+                "ctr": 0.0171
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "w-men | studio sports",
+                "revenue": 3972.18,
+                "spend": 706.5,
+                "roas": 5.62,
+                "ctr": 0.0181
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "wom n fit & lift",
+                "revenue": 684.32,
+                "spend": 352.18,
+                "roas": 1.94,
+                "ctr": 0.0242
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women c-tton classics",
+                "revenue": 1257.44,
+                "spend": 413.54,
+                "roas": 3.04,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 21813.2211,
+                "spend": 3032.74,
+                "roas": 6.765,
+                "ctr": 0.011300000000000001
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 5917.756,
+                "spend": 1125.6299999999999,
+                "roas": 21.08666666666667,
+                "ctr": 0.0202
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 8122.179999999999,
+                "spend": 3047.137204301075,
+                "roas": 3.2619999999999996,
+                "ctr": 0.00716
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women summer invisi-le",
+                "revenue": 4675.28,
+                "spend": 412.7,
+                "roas": 11.33,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women summer invisib e",
+                "revenue": 4776.37,
+                "spend": 544.2,
+                "roas": 8.78,
+                "ctr": 0.01
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 811.23,
+                "spend": 995.6700000000001,
+                "roas": 0.78,
+                "ctr": 0.0115
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 21096.879999999997,
+                "spend": 1202.8600000000001,
+                "roas": 22.28333333333333,
+                "ctr": 0.010199999999999999
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 822.3,
+                "spend": 393.74,
+                "roas": 2.09,
+                "ctr": 0.0196
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 2189.34,
+                "spend": 393.71,
+                "roas": 5.56,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-04",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 1048.33,
+                "spend": 354.98,
+                "roas": 2.95,
+                "ctr": 0.0069
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "en premium modal",
+                "revenue": 3403.89,
+                "spend": 730.44,
+                "roas": 4.66,
+                "ctr": 0.0144
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 5865.13,
+                "spend": 2273.82,
+                "roas": 3.475,
+                "ctr": 0.01175
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 9994.65,
+                "spend": 2957.15,
+                "roas": 5.2780000000000005,
+                "ctr": 0.01998
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men premiu- modal",
+                "revenue": 2013.94,
+                "spend": 499.5,
+                "roas": 4.03,
+                "ctr": 0.0103
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 12109.33,
+                "spend": 1771.09,
+                "roas": 8.176666666666668,
+                "ctr": 0.0086
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3974.76,
+                "spend": 2629.73,
+                "roas": 1.5699999999999998,
+                "ctr": 0.014475
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 27583.09,
+                "spend": 1068.6599999999999,
+                "roas": 29.406666666666666,
+                "ctr": 0.0252
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 7743.629999999999,
+                "spend": 823.0,
+                "roas": 40.03,
+                "ctr": 0.02055
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 533.67,
+                "spend": 950.88,
+                "roas": 0.56,
+                "ctr": 0.0059
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 1849.7,
+                "spend": 1401.2878787878788,
+                "roas": 1.32,
+                "ctr": 0.0192
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "w men fit & lift",
+                "revenue": 1411.4,
+                "spend": 1002.24,
+                "roas": 1.41,
+                "ctr": 0.0136
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 5318.53,
+                "spend": 1440.13,
+                "roas": 7.113333333333333,
+                "ctr": 0.010233333333333332
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women cotton lassics",
+                "revenue": 5765.55,
+                "spend": 515.4,
+                "roas": 11.19,
+                "ctr": 0.0102
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 7046.6900000000005,
+                "spend": 1069.83,
+                "roas": 6.513333333333333,
+                "ctr": 0.023000000000000003
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 4608.72,
+                "spend": 946.49,
+                "roas": 6.115,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women semless everyday",
+                "revenue": 1469.48,
+                "spend": 445.09,
+                "roas": 3.3,
+                "ctr": 0.0113
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 15753.23,
+                "spend": 1637.06,
+                "roas": 9.594999999999999,
+                "ctr": 0.01035
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 24294.95,
+                "spend": 1855.71,
+                "roas": 13.2075,
+                "ctr": 0.009575
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 857.1,
+                "spend": 323.3,
+                "roas": 2.65,
+                "ctr": 0.005
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 4575.45,
+                "spend": 1099.33,
+                "roas": 4.16,
+                "ctr": 0.028
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 3128.8500000000004,
+                "spend": 1890.37,
+                "roas": 1.49,
+                "ctr": 0.0078
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 3754.36,
+                "spend": 1034.69,
+                "roas": 3.63,
+                "ctr": 0.0122
+            },
+            {
+                "date": "2025-03-05",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 1058.45,
+                "spend": 182.84,
+                "roas": 5.79,
+                "ctr": 0.0079
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4482.59,
+                "spend": 2289.38,
+                "roas": 2.5300000000000002,
+                "ctr": 0.00802
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 11777.05,
+                "spend": 3672.66,
+                "roas": 3.372,
+                "ctr": 0.01788
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men pre ium modal",
+                "revenue": 969.43,
+                "spend": 215.29,
+                "roas": 4.5,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 1943.59,
+                "spend": 1907.17,
+                "roas": 2.5366666666666666,
+                "ctr": 0.007
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 893.88,
+                "spend": 1536.1299999999999,
+                "roas": 0.7233333333333333,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 15700.33,
+                "spend": 1589.44,
+                "roas": 13.506666666666666,
+                "ctr": 0.021433333333333332
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 433.32,
+                "spend": 171.02,
+                "roas": 2.53,
+                "ctr": 0.0115
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 1049.86,
+                "spend": 1033.11,
+                "roas": 1.04,
+                "ctr": 0.02025
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 5576.65,
+                "spend": 610.5699999999999,
+                "roas": 13.86,
+                "ctr": 0.028900000000000002
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "wo en fit & lift",
+                "revenue": 3606.06,
+                "spend": 979.89,
+                "roas": 3.68,
+                "ctr": 0.0166
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 7394.719,
+                "spend": 1202.1200000000001,
+                "roas": 13.912500000000001,
+                "ctr": 0.010375
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 2265.9596,
+                "spend": 1527.54,
+                "roas": 1.8399999999999999,
+                "ctr": 0.014266666666666669
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 628.8291,
+                "spend": 395.49,
+                "roas": 1.59,
+                "ctr": 0.0122
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 16247.87,
+                "spend": 1444.47,
+                "roas": 21.338,
+                "ctr": 0.00818
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 7266.27,
+                "spend": 1314.4,
+                "roas": 6.368,
+                "ctr": 0.010039999999999999
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 29045.95,
+                "spend": 1525.31,
+                "roas": 21.1075,
+                "ctr": 0.013675
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 4016.14,
+                "spend": 310.45,
+                "roas": 12.94,
+                "ctr": 0.0063
+            },
+            {
+                "date": "2025-03-06",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 5559.55,
+                "spend": 374.5,
+                "roas": 14.85,
+                "ctr": 0.0147
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men bold clors drop",
+                "revenue": 1860.51,
+                "spend": 908.76,
+                "roas": 2.05,
+                "ctr": 0.0119
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2448.5099999999998,
+                "spend": 2830.416153846154,
+                "roas": 1.7375,
+                "ctr": 0.006500000000000001
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 12504.65,
+                "spend": 1123.79,
+                "roas": 11.5725,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 9560.77,
+                "spend": 2811.7000000000003,
+                "roas": 4.586,
+                "ctr": 0.0114
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 5984.78,
+                "spend": 1746.7044444444443,
+                "roas": 7.359999999999999,
+                "ctr": 0.014860000000000002
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 10672.4,
+                "spend": 1053.5,
+                "roas": 11.3625,
+                "ctr": 0.01725
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 1290.15,
+                "spend": 591.38,
+                "roas": 2.18,
+                "ctr": 0.0231
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 5446.0,
+                "spend": 533.99,
+                "roas": 10.2,
+                "ctr": 0.0238
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 11109.369999999999,
+                "spend": 1557.99,
+                "roas": 15.209999999999999,
+                "ctr": 0.0102
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women cotton classis",
+                "revenue": 3315.25,
+                "spend": 706.74,
+                "roas": 4.69,
+                "ctr": 0.0096
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 9738.3646,
+                "spend": 2069.39,
+                "roas": 21.377499999999998,
+                "ctr": 0.014974999999999999
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 1162.25,
+                "spend": 645.09,
+                "roas": 1.8,
+                "ctr": 0.018
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 10482.42,
+                "spend": 2723.73,
+                "roas": 5.8180000000000005,
+                "ctr": 0.00872
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women summ r invisible",
+                "revenue": 944.28,
+                "spend": 613.95,
+                "roas": 1.54,
+                "ctr": 0.0086
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 5553.04,
+                "spend": 869.37,
+                "roas": 7.944999999999999,
+                "ctr": 0.00935
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 26695.210000000003,
+                "spend": 2599.16,
+                "roas": 12.02,
+                "ctr": 0.013139999999999999
+            },
+            {
+                "date": "2025-03-07",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 7245.47,
+                "spend": 1558.03,
+                "roas": 4.615,
+                "ctr": 0.0133
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men bold c-lors drop",
+                "revenue": 674.06,
+                "spend": 1080.38,
+                "roas": 0.62,
+                "ctr": 0.013
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4805.76,
+                "spend": 2217.63,
+                "roas": 3.08,
+                "ctr": 0.008225
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men comfortmax lau-ch",
+                "revenue": 393.76,
+                "spend": 371.67,
+                "roas": 1.06,
+                "ctr": 0.0085
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 13327.73,
+                "spend": 1766.0,
+                "roas": 5.734999999999999,
+                "ctr": 0.013625
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 10871.73,
+                "spend": 1303.9659872611464,
+                "roas": 11.128,
+                "ctr": 0.010620000000000001
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3884.06,
+                "spend": 2009.3300000000002,
+                "roas": 2.3275,
+                "ctr": 0.0156
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 22218.21,
+                "spend": 1484.8799999999999,
+                "roas": 17.97,
+                "ctr": 0.02036666666666667
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 699.1362,
+                "spend": 463.27,
+                "roas": 2.04,
+                "ctr": 0.0189
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "men-signature soft",
+                "revenue": 757.05,
+                "spend": 1291.57,
+                "roas": 0.59,
+                "ctr": 0.011
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women cott n classics",
+                "revenue": 4620.47,
+                "spend": 286.42,
+                "roas": 16.13,
+                "ctr": 0.0093
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 12675.02,
+                "spend": 2486.8,
+                "roas": 4.8325000000000005,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 5190.2300000000005,
+                "spend": 994.15,
+                "roas": 5.61,
+                "ctr": 0.01933333333333333
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 4038.0,
+                "spend": 337.96,
+                "roas": 11.95,
+                "ctr": 0.0207
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 13585.77,
+                "spend": 2395.42,
+                "roas": 5.6925,
+                "ctr": 0.009025
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 10373.28,
+                "spend": 2138.82,
+                "roas": 7.139999999999999,
+                "ctr": 0.01196
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 13923.2364,
+                "spend": 1841.22,
+                "roas": 7.963333333333334,
+                "ctr": 0.011366666666666666
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women-fit & lift",
+                "revenue": 788.89,
+                "spend": 66.19,
+                "roas": 11.92,
+                "ctr": 0.0252
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 3764.8,
+                "spend": 704.72,
+                "roas": 5.34,
+                "ctr": 0.0133
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 1853.727,
+                "spend": 788.82,
+                "roas": 2.35,
+                "ctr": 0.0082
+            },
+            {
+                "date": "2025-03-08",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 4098.86,
+                "spend": 146.85,
+                "roas": 27.91,
+                "ctr": 0.0095
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4724.2300000000005,
+                "spend": 1625.5,
+                "roas": 3.4880000000000004,
+                "ctr": 0.009859999999999999
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 16289.710000000001,
+                "spend": 2775.77,
+                "roas": 5.84,
+                "ctr": 0.01542
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 9425.619999999999,
+                "spend": 2963.24,
+                "roas": 3.566,
+                "ctr": 0.0092
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3857.3,
+                "spend": 2341.26,
+                "roas": 2.7025,
+                "ctr": 0.01575
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 26516.23,
+                "spend": 1803.64,
+                "roas": 50.9525,
+                "ctr": 0.019275
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 903.41,
+                "spend": 1100.27,
+                "roas": 0.82,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 5177.34,
+                "spend": 460.56,
+                "roas": 11.24,
+                "ctr": 0.0204
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 17734.5178,
+                "spend": 1713.08,
+                "roas": 13.040000000000001,
+                "ctr": 0.0098
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 7266.34,
+                "spend": 1611.88,
+                "roas": 8.9,
+                "ctr": 0.0187
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 6793.73,
+                "spend": 538.08,
+                "roas": 12.63,
+                "ctr": 0.0148
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 12613.03,
+                "spend": 1248.0,
+                "roas": 17.259999999999998,
+                "ctr": 0.00916
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 13277.23,
+                "spend": 1772.1625000000001,
+                "roas": 10.486,
+                "ctr": 0.01
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 30658.730000000003,
+                "spend": 1060.07,
+                "roas": 36.165,
+                "ctr": 0.011949999999999999
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 3535.69,
+                "spend": 503.79,
+                "roas": 7.02,
+                "ctr": 0.0101
+            },
+            {
+                "date": "2025-03-09",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 2532.38,
+                "spend": 142.72,
+                "roas": 17.74,
+                "ctr": 0.0088
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4040.7993,
+                "spend": 2198.73,
+                "roas": 3.01,
+                "ctr": 0.00914
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 9013.31,
+                "spend": 1662.02,
+                "roas": 5.4479999999999995,
+                "ctr": 0.009420000000000001
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 14970.8,
+                "spend": 1732.2,
+                "roas": 48.97,
+                "ctr": 0.010525
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 4363.227,
+                "spend": 2114.9900000000002,
+                "roas": 1.7719999999999998,
+                "ctr": 0.01456
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 18011.87,
+                "spend": 1598.12,
+                "roas": 16.947499999999998,
+                "ctr": 0.02175
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 5092.9,
+                "spend": 98.75,
+                "roas": 51.57,
+                "ctr": 0.0205
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 3608.57,
+                "spend": 1186.03,
+                "roas": 3.04,
+                "ctr": 0.0143
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "wmen seamless everyday",
+                "revenue": 4324.74,
+                "spend": 138.86,
+                "roas": 31.14,
+                "ctr": 0.0098
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 12746.45,
+                "spend": 1438.54,
+                "roas": 8.518,
+                "ctr": 0.010339999999999998
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 3906.8800000000006,
+                "spend": 1082.117619047619,
+                "roas": 7.78,
+                "ctr": 0.017733333333333334
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 10972.89,
+                "spend": 2724.63,
+                "roas": 15.049999999999999,
+                "ctr": 0.008
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 6036.09,
+                "spend": 1683.16,
+                "roas": 3.0425,
+                "ctr": 0.010375
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 5805.27,
+                "spend": 1635.24,
+                "roas": 3.426666666666667,
+                "ctr": 0.013133333333333335
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women-| studio sports",
+                "revenue": 3689.11,
+                "spend": 740.52,
+                "roas": 4.98,
+                "ctr": 0.0162
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 3790.44,
+                "spend": 818.9625080385852,
+                "roas": 10.18,
+                "ctr": 0.0176
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 134.18,
+                "spend": 701.94,
+                "roas": 0.19,
+                "ctr": 0.0123
+            },
+            {
+                "date": "2025-03-10",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 446.39,
+                "spend": 398.64,
+                "roas": 1.12,
+                "ctr": 0.0089
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "me premium modal",
+                "revenue": 1525.15,
+                "spend": 653.41,
+                "roas": 2.33,
+                "ctr": 0.0061
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4077.48,
+                "spend": 2380.97,
+                "roas": 2.1224999999999996,
+                "ctr": 0.010075
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 8489.08,
+                "spend": 1856.52,
+                "roas": 4.62,
+                "ctr": 0.011949999999999999
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men premium -odal",
+                "revenue": 861.25,
+                "spend": 542.42,
+                "roas": 1.59,
+                "ctr": 0.0066
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 9159.2,
+                "spend": 2291.95,
+                "roas": 5.256666666666667,
+                "ctr": 0.011766666666666667
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 2664.7000000000003,
+                "spend": 2073.52,
+                "roas": 1.5425,
+                "ctr": 0.01475
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 42456.25,
+                "spend": 1568.1,
+                "roas": 23.5125,
+                "ctr": 0.02495
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 10593.01,
+                "spend": 128.33,
+                "roas": 82.55,
+                "ctr": 0.026
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 1407.2481,
+                "spend": 919.77,
+                "roas": 1.53,
+                "ctr": 0.0111
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 2365.8,
+                "spend": 401.99,
+                "roas": 5.89,
+                "ctr": 0.0135
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "men_signatu e_soft",
+                "revenue": 1309.85,
+                "spend": 635.03,
+                "roas": 2.06,
+                "ctr": 0.0136
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women c tton classics",
+                "revenue": 8561.31,
+                "spend": 486.37,
+                "roas": 17.6,
+                "ctr": 0.0127
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 3849.56,
+                "spend": 1704.87,
+                "roas": 2.11,
+                "ctr": 0.007233333333333334
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 7977.7228,
+                "spend": 722.21,
+                "roas": 16.786666666666665,
+                "ctr": 0.015666666666666666
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 2763.89,
+                "spend": 1170.16,
+                "roas": 2.36,
+                "ctr": 0.0208
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women s-mmer invisible",
+                "revenue": 944.89,
+                "spend": 712.73,
+                "roas": 1.33,
+                "ctr": 0.0085
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 20646.010000000002,
+                "spend": 3196.33,
+                "roas": 9.925999999999998,
+                "ctr": 0.0075
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 10739.130000000001,
+                "spend": 561.01,
+                "roas": 26.43,
+                "ctr": 0.0098
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 13128.8,
+                "spend": 1000.908652849741,
+                "roas": 32.50333333333334,
+                "ctr": 0.011466666666666667
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women | studio sprts",
+                "revenue": 1468.43,
+                "spend": 1185.21,
+                "roas": 1.24,
+                "ctr": 0.0137
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 5431.47,
+                "spend": 1102.3,
+                "roas": 4.93,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 3010.4700000000003,
+                "spend": 273.52,
+                "roas": 13.445,
+                "ctr": 0.00965
+            },
+            {
+                "date": "2025-03-11",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 1758.93,
+                "spend": 1255.59,
+                "roas": 1.4,
+                "ctr": 0.0099
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2976.4838,
+                "spend": 2104.06,
+                "roas": 1.5100000000000002,
+                "ctr": 0.00886
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 13219.18,
+                "spend": 1483.47,
+                "roas": 14.974,
+                "ctr": 0.0162
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 5215.7991,
+                "spend": 2272.24,
+                "roas": 3.224,
+                "ctr": 0.00906
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 5155.1,
+                "spend": 1723.3551552795032,
+                "roas": 3.8750000000000004,
+                "ctr": 0.01745
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 20600.7,
+                "spend": 1901.79,
+                "roas": 10.963333333333333,
+                "ctr": 0.02316666666666667
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 10416.49,
+                "spend": 673.6,
+                "roas": 15.43,
+                "ctr": 0.01925
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 1746.66,
+                "spend": 68.88,
+                "roas": 25.36,
+                "ctr": 0.0123
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "omen | studio sports",
+                "revenue": 6016.868,
+                "spend": 525.95,
+                "roas": 11.44,
+                "ctr": 0.0138
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women cotton clasics",
+                "revenue": 902.61,
+                "spend": 734.3,
+                "roas": 1.23,
+                "ctr": 0.0104
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 4686.1900000000005,
+                "spend": 1689.6399999999999,
+                "roas": 3.326666666666666,
+                "ctr": 0.009766666666666667
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women ctton classics",
+                "revenue": 7586.51,
+                "spend": 463.56,
+                "roas": 16.37,
+                "ctr": 0.017
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 6306.23,
+                "spend": 1219.9099999999999,
+                "roas": 13.285,
+                "ctr": 0.016625
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 10533.33,
+                "spend": 1436.4,
+                "roas": 8.36,
+                "ctr": 0.007925
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women seamless everydy",
+                "revenue": 2143.07,
+                "spend": 153.97,
+                "roas": 13.92,
+                "ctr": 0.0053
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 17416.05,
+                "spend": 1300.31,
+                "roas": 23.67,
+                "ctr": 0.011474999999999999
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 22104.61,
+                "spend": 2649.74,
+                "roas": 8.487499999999999,
+                "ctr": 0.013625
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 682.35,
+                "spend": 886.35,
+                "roas": 0.77,
+                "ctr": 0.0174
+            },
+            {
+                "date": "2025-03-12",
+                "campaign_name_clean": "women_summer_invisi-le",
+                "revenue": 329.68,
+                "spend": 431.95,
+                "roas": 0.76,
+                "ctr": 0.0086
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2685.24,
+                "spend": 2802.14,
+                "roas": 1.1975,
+                "ctr": 0.006725
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men co fortmax launch",
+                "revenue": 1150.77,
+                "spend": 336.69,
+                "roas": 3.42,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 3329.7200000000003,
+                "spend": 1077.91,
+                "roas": 3.4749999999999996,
+                "ctr": 0.00885
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men premium m-dal",
+                "revenue": 2230.9,
+                "spend": 840.63,
+                "roas": 2.65,
+                "ctr": 0.0098
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 5945.74,
+                "spend": 1491.65,
+                "roas": 3.9033333333333338,
+                "ctr": 0.010433333333333334
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 1849.82,
+                "spend": 2431.91,
+                "roas": 0.765,
+                "ctr": 0.014475
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 33321.472,
+                "spend": 2675.54,
+                "roas": 32.696000000000005,
+                "ctr": 0.02084
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 1294.22,
+                "spend": 183.0,
+                "roas": 7.07,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 5389.360000000001,
+                "spend": 567.5799999999999,
+                "roas": 9.54,
+                "ctr": 0.009999999999999998
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 8062.5,
+                "spend": 495.85,
+                "roas": 16.26,
+                "ctr": 0.01
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 646.8721,
+                "spend": 200.27,
+                "roas": 3.23,
+                "ctr": 0.0145
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 10077.060599999999,
+                "spend": 2388.56,
+                "roas": 4.452,
+                "ctr": 0.01026
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 8988.75,
+                "spend": 1643.3600000000001,
+                "roas": 7.640000000000001,
+                "ctr": 0.016220000000000002
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 11659.06,
+                "spend": 1617.4299999999998,
+                "roas": 8.33,
+                "ctr": 0.008280000000000001
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 9933.96,
+                "spend": 1586.73,
+                "roas": 9.407499999999999,
+                "ctr": 0.010675
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 17110.43,
+                "spend": 1530.3400000000001,
+                "roas": 21.97,
+                "ctr": 0.012000000000000002
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women-studio-sports",
+                "revenue": 1817.39,
+                "spend": 44.25,
+                "roas": 41.07,
+                "ctr": 0.0089
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 965.62,
+                "spend": 56.13,
+                "roas": 17.2,
+                "ctr": 0.0159
+            },
+            {
+                "date": "2025-03-13",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 2283.11,
+                "spend": 605.12,
+                "roas": 3.77,
+                "ctr": 0.0093
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men -remium modal",
+                "revenue": 407.77,
+                "spend": 301.88,
+                "roas": 1.35,
+                "ctr": 0.0112
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men bold -olors drop",
+                "revenue": 625.76,
+                "spend": 288.14,
+                "roas": 2.17,
+                "ctr": 0.0093
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 243.32,
+                "spend": 1463.5700000000002,
+                "roas": 0.19,
+                "ctr": 0.007500000000000001
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 16037.29,
+                "spend": 1113.8300000000002,
+                "roas": 23.855,
+                "ctr": 0.01615
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 11487.5823,
+                "spend": 2087.76,
+                "roas": 30.83666666666667,
+                "ctr": 0.0121
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 856.25,
+                "spend": 2922.28,
+                "roas": 0.335,
+                "ctr": 0.01375
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 15032.25,
+                "spend": 2547.71,
+                "roas": 9.815,
+                "ctr": 0.0198
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men | athleisurecooling",
+                "revenue": 3825.2697,
+                "spend": 1031.07,
+                "roas": 3.71,
+                "ctr": 0.023
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 2395.77,
+                "spend": 435.53,
+                "roas": 8.55,
+                "ctr": 0.009899999999999999
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 679.68,
+                "spend": 134.28,
+                "roas": 5.06,
+                "ctr": 0.0184
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 60.75,
+                "spend": 80.55,
+                "roas": 0.75,
+                "ctr": 0.013
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 220.13,
+                "spend": 245.23,
+                "roas": 0.9,
+                "ctr": 0.0155
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 14769.44,
+                "spend": 1859.49,
+                "roas": 28.934000000000005,
+                "ctr": 0.01048
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 9947.3,
+                "spend": 1920.35,
+                "roas": 5.5225,
+                "ctr": 0.020575
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women it & lift",
+                "revenue": 1757.47,
+                "spend": 315.62,
+                "roas": 5.57,
+                "ctr": 0.0143
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 5389.468199999999,
+                "spend": 1327.07,
+                "roas": 6.7625,
+                "ctr": 0.007175
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 8387.5,
+                "spend": 2284.6,
+                "roas": 9.57,
+                "ctr": 0.011640000000000001
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women | studi sports",
+                "revenue": 1718.52,
+                "spend": 308.67,
+                "roas": 5.57,
+                "ctr": 0.0122
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 13997.59,
+                "spend": 1542.95,
+                "roas": 7.646666666666666,
+                "ctr": 0.0089
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 697.86,
+                "spend": 101.18,
+                "roas": 6.9,
+                "ctr": 0.0071
+            },
+            {
+                "date": "2025-03-14",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 449.34,
+                "spend": 63.08,
+                "roas": 7.12,
+                "ctr": 0.0129
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men bld colors drop",
+                "revenue": 99.83,
+                "spend": 248.65,
+                "roas": 0.4,
+                "ctr": 0.0101
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2059.24,
+                "spend": 2195.3038129496404,
+                "roas": 0.9233333333333333,
+                "ctr": 0.009833333333333333
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 8410.08,
+                "spend": 2035.3849702380953,
+                "roas": 6.434,
+                "ctr": 0.015360000000000002
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 13612.1224,
+                "spend": 3974.54,
+                "roas": 3.66,
+                "ctr": 0.0115
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3594.89,
+                "spend": 1487.03,
+                "roas": 2.0075,
+                "ctr": 0.01335
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men | ath eisure cooling",
+                "revenue": 10214.71,
+                "spend": 906.42,
+                "roas": 11.27,
+                "ctr": 0.0226
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 5925.52,
+                "spend": 584.51,
+                "roas": 11.83,
+                "ctr": 0.0191
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men | athlisure cooling",
+                "revenue": 4714.6,
+                "spend": 304.1677419354839,
+                "roas": 15.5,
+                "ctr": 0.0183
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 4329.26,
+                "spend": 319.17,
+                "roas": 13.56,
+                "ctr": 0.0192
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 1477.09,
+                "spend": 421.78,
+                "roas": 3.5,
+                "ctr": 0.0113
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 309.77,
+                "spend": 112.52,
+                "roas": 2.75,
+                "ctr": 0.0125
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "woen cotton classics",
+                "revenue": 1749.16,
+                "spend": 654.14,
+                "roas": 2.67,
+                "ctr": 0.0054
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 19412.34,
+                "spend": 1603.54,
+                "roas": 18.403333333333332,
+                "ctr": 0.0092
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 8741.24,
+                "spend": 1688.2324786324787,
+                "roas": 6.394,
+                "ctr": 0.01718
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 15239.84,
+                "spend": 1319.3899999999999,
+                "roas": 26.176666666666666,
+                "ctr": 0.010566666666666667
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women summer invi ible",
+                "revenue": 3466.29,
+                "spend": 255.58,
+                "roas": 13.56,
+                "ctr": 0.0094
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 3849.9700000000003,
+                "spend": 698.1899999999999,
+                "roas": 10.995,
+                "ctr": 0.0102
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women | studio ports",
+                "revenue": 984.14,
+                "spend": 467.77,
+                "roas": 2.1,
+                "ctr": 0.013
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 12423.377800000002,
+                "spend": 866.81,
+                "roas": 14.4,
+                "ctr": 0.01185
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 4258.1638,
+                "spend": 690.14,
+                "roas": 6.17,
+                "ctr": 0.0121
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women-studio spots",
+                "revenue": 5151.18,
+                "spend": 181.76,
+                "roas": 28.34,
+                "ctr": 0.0185
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 12925.52,
+                "spend": 389.7,
+                "roas": 33.17,
+                "ctr": 0.0121
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 9691.95,
+                "spend": 511.0,
+                "roas": 19.68,
+                "ctr": 0.0121
+            },
+            {
+                "date": "2025-03-15",
+                "campaign_name_clean": "womenseamless everyday",
+                "revenue": 5269.39,
+                "spend": 506.72,
+                "roas": 10.4,
+                "ctr": 0.011
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "-omen summer invisible",
+                "revenue": 7957.32,
+                "spend": 340.62,
+                "roas": 23.36,
+                "ctr": 0.0174
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2732.9155,
+                "spend": 1429.57,
+                "roas": 1.8966666666666665,
+                "ctr": 0.008866666666666667
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 20195.0649,
+                "spend": 816.28,
+                "roas": 38.9425,
+                "ctr": 0.017075
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men old colors drop",
+                "revenue": 1062.79,
+                "spend": 246.1,
+                "roas": 4.32,
+                "ctr": 0.0101
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 10010.02,
+                "spend": 3025.1051933701656,
+                "roas": 3.0300000000000002,
+                "ctr": 0.01266
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 4712.22,
+                "spend": 2105.1,
+                "roas": 3.342,
+                "ctr": 0.01202
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 14888.85,
+                "spend": 1716.74,
+                "roas": 8.356666666666667,
+                "ctr": 0.020666666666666667
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 6596.07,
+                "spend": 943.75,
+                "roas": 6.99,
+                "ctr": 0.0315
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 509.0,
+                "spend": 157.02,
+                "roas": 3.24,
+                "ctr": 0.0043
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 1498.02,
+                "spend": 406.53,
+                "roas": 3.68,
+                "ctr": 0.0086
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 12217.05,
+                "spend": 152.64,
+                "roas": 80.04,
+                "ctr": 0.0212
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 23016.600000000002,
+                "spend": 2169.24,
+                "roas": 20.517999999999997,
+                "ctr": 0.010539999999999999
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 8321.7819,
+                "spend": 2424.525785953177,
+                "roas": 4.715999999999999,
+                "ctr": 0.01646
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 9206.62,
+                "spend": 1730.46,
+                "roas": 8.845,
+                "ctr": 0.0076
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 7648.31,
+                "spend": 1516.66,
+                "roas": 12.425,
+                "ctr": 0.0107
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 14610.410000000002,
+                "spend": 1137.9,
+                "roas": 28.642500000000002,
+                "ctr": 0.009
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 529.191,
+                "spend": 452.3,
+                "roas": 1.17,
+                "ctr": 0.005
+            },
+            {
+                "date": "2025-03-16",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 824.86,
+                "spend": 224.86,
+                "roas": 3.67,
+                "ctr": 0.0119
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men bold col rs drop",
+                "revenue": 181.87,
+                "spend": 656.16,
+                "roas": 0.28,
+                "ctr": 0.0054
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2699.95,
+                "spend": 1957.81,
+                "roas": 1.4133333333333333,
+                "ctr": 0.0088
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 6212.120000000001,
+                "spend": 1561.67,
+                "roas": 5.11,
+                "ctr": 0.014266666666666665
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men prem-um modal",
+                "revenue": 9225.27,
+                "spend": 470.42,
+                "roas": 19.61,
+                "ctr": 0.0147
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 4458.37,
+                "spend": 740.43,
+                "roas": 9.723333333333334,
+                "ctr": 0.010666666666666666
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3580.67,
+                "spend": 2835.95,
+                "roas": 2.2624999999999997,
+                "ctr": 0.013399999999999999
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men | athlei-ure cooling",
+                "revenue": 1558.23,
+                "spend": 143.57,
+                "roas": 10.85,
+                "ctr": 0.0254
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 39535.38,
+                "spend": 2415.46,
+                "roas": 18.294999999999998,
+                "ctr": 0.0264
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 981.82,
+                "spend": 303.98,
+                "roas": 3.23,
+                "ctr": 0.0134
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 14517.29,
+                "spend": 328.12,
+                "roas": 44.24,
+                "ctr": 0.0273
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 1284.23,
+                "spend": 331.8,
+                "roas": 3.87,
+                "ctr": 0.0116
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 831.47,
+                "spend": 314.81,
+                "roas": 2.64,
+                "ctr": 0.0125
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "mencomfortmax launch",
+                "revenue": 2916.02,
+                "spend": 927.85,
+                "roas": 3.14,
+                "ctr": 0.0171
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "wmen_fit_&_lift",
+                "revenue": 827.22,
+                "spend": 318.24,
+                "roas": 2.6,
+                "ctr": 0.0128
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women coton classics",
+                "revenue": 13075.04,
+                "spend": 958.63,
+                "roas": 13.64,
+                "ctr": 0.014
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 5471.12,
+                "spend": 2002.77,
+                "roas": 2.4625,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 3142.98,
+                "spend": 1028.77,
+                "roas": 2.58,
+                "ctr": 0.016666666666666666
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women fit-& lift",
+                "revenue": 557.46,
+                "spend": 360.98,
+                "roas": 1.54,
+                "ctr": 0.0159
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women seamless eve yday",
+                "revenue": 6673.7,
+                "spend": 1155.47,
+                "roas": 5.78,
+                "ctr": 0.0124
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 7407.18,
+                "spend": 1985.03,
+                "roas": 3.513333333333333,
+                "ctr": 0.008533333333333334
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women summer i visible",
+                "revenue": 7361.49,
+                "spend": 385.74,
+                "roas": 19.08,
+                "ctr": 0.0137
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 8208.92,
+                "spend": 2412.66,
+                "roas": 4.22,
+                "ctr": 0.011925
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 19644.3684,
+                "spend": 1393.43,
+                "roas": 17.97,
+                "ctr": 0.012633333333333335
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 3810.53,
+                "spend": 392.2,
+                "roas": 9.72,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 3421.47,
+                "spend": 211.23,
+                "roas": 16.2,
+                "ctr": 0.0078
+            },
+            {
+                "date": "2025-03-17",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 795.68,
+                "spend": 752.8,
+                "roas": 1.06,
+                "ctr": 0.0122
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men bold colo s drop",
+                "revenue": 1789.55,
+                "spend": 478.17,
+                "roas": 3.74,
+                "ctr": 0.0116
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3692.0899999999997,
+                "spend": 2455.4733333333334,
+                "roas": 1.295,
+                "ctr": 0.010575000000000001
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 18654.46,
+                "spend": 1243.37,
+                "roas": 20.53,
+                "ctr": 0.016300000000000002
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 13044.67,
+                "spend": 1595.05,
+                "roas": 9.736,
+                "ctr": 0.011260000000000001
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 2354.4,
+                "spend": 1400.22,
+                "roas": 2.085,
+                "ctr": 0.012325000000000001
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 9572.29,
+                "spend": 970.9389393939394,
+                "roas": 15.116666666666667,
+                "ctr": 0.0208
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 7061.66,
+                "spend": 552.84,
+                "roas": 12.77,
+                "ctr": 0.0195
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 2838.38,
+                "spend": 831.46,
+                "roas": 3.41,
+                "ctr": 0.0184
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 354.09,
+                "spend": 843.0714285714286,
+                "roas": 0.42,
+                "ctr": 0.0217
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 9034.85,
+                "spend": 1022.82,
+                "roas": 8.83,
+                "ctr": 0.0235
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 10072.63,
+                "spend": 1648.53,
+                "roas": 8.423333333333334,
+                "ctr": 0.008533333333333332
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 2564.39,
+                "spend": 783.69,
+                "roas": 3.485,
+                "ctr": 0.0189
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 6832.21,
+                "spend": 2050.11,
+                "roas": 5.604,
+                "ctr": 0.0061400000000000005
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 16634.25,
+                "spend": 2354.2200000000003,
+                "roas": 9.0425,
+                "ctr": 0.0108
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women | stu io sports",
+                "revenue": 8875.82,
+                "spend": 1047.07,
+                "roas": 8.48,
+                "ctr": 0.0093
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women | studio spo ts",
+                "revenue": 717.3485000000001,
+                "spend": 592.85,
+                "roas": 1.21,
+                "ctr": 0.0062
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 4003.16,
+                "spend": 396.61,
+                "roas": 10.09,
+                "ctr": 0.0137
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 10746.09,
+                "spend": 1238.05,
+                "roas": 9.115,
+                "ctr": 0.0095
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 5718.87,
+                "spend": 1157.52,
+                "roas": 6.579999999999999,
+                "ctr": 0.019
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 2618.27,
+                "spend": 727.62,
+                "roas": 3.6,
+                "ctr": 0.015
+            },
+            {
+                "date": "2025-03-18",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 5891.57,
+                "spend": 1452.95,
+                "roas": 4.025,
+                "ctr": 0.0075
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "m-n bold colors drop",
+                "revenue": 656.44,
+                "spend": 929.05,
+                "roas": 0.71,
+                "ctr": 0.0076
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "me- premium modal",
+                "revenue": 1452.7,
+                "spend": 875.79,
+                "roas": 1.66,
+                "ctr": 0.0124
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men bol colors drop",
+                "revenue": 215.12,
+                "spend": 388.09,
+                "roas": 0.55,
+                "ctr": 0.0045
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 1658.5900000000001,
+                "spend": 1958.6000000000001,
+                "roas": 0.895,
+                "ctr": 0.00745
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 9464.43,
+                "spend": 2047.37,
+                "roas": 5.859999999999999,
+                "ctr": 0.012175
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 12595.4,
+                "spend": 1967.2,
+                "roas": 7.4325,
+                "ctr": 0.009825
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3288.71,
+                "spend": 1438.69,
+                "roas": 2.1149999999999998,
+                "ctr": 0.014
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 13967.31,
+                "spend": 2111.7,
+                "roas": 7.19,
+                "ctr": 0.022325
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 404.05,
+                "spend": 604.25,
+                "roas": 0.67,
+                "ctr": 0.0108
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 765.68,
+                "spend": 277.78,
+                "roas": 2.76,
+                "ctr": 0.0092
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 146.15,
+                "spend": 114.52,
+                "roas": 1.28,
+                "ctr": 0.013
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 6960.0,
+                "spend": 367.09,
+                "roas": 18.96,
+                "ctr": 0.0194
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 15421.08,
+                "spend": 1824.96,
+                "roas": 8.73,
+                "ctr": 0.01085
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 5211.19,
+                "spend": 2282.45,
+                "roas": 6.2025,
+                "ctr": 0.016825
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 1284.28,
+                "spend": 160.47,
+                "roas": 8.0,
+                "ctr": 0.0134
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 8472.62,
+                "spend": 2067.43,
+                "roas": 4.297499999999999,
+                "ctr": 0.00815
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women summer in isible",
+                "revenue": 187.21,
+                "spend": 563.04,
+                "roas": 0.33,
+                "ctr": 0.0129
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 11701.89,
+                "spend": 1600.93,
+                "roas": 8.033333333333333,
+                "ctr": 0.010366666666666666
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 24751.489999999998,
+                "spend": 3205.2,
+                "roas": 12.456,
+                "ctr": 0.010839999999999999
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 1992.92,
+                "spend": 523.94,
+                "roas": 3.8,
+                "ctr": 0.0076
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 6009.79,
+                "spend": 111.85,
+                "roas": 53.73,
+                "ctr": 0.0087
+            },
+            {
+                "date": "2025-03-19",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 1504.6,
+                "spend": 605.38,
+                "roas": 2.49,
+                "ctr": 0.0125
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "-omen-studio sports",
+                "revenue": 4395.38,
+                "spend": 149.07,
+                "roas": 29.49,
+                "ctr": 0.0096
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3785.15,
+                "spend": 1770.4,
+                "roas": 3.2020000000000004,
+                "ctr": 0.00982
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 19974.2,
+                "spend": 2563.83,
+                "roas": 19.185,
+                "ctr": 0.016275
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 13266.71,
+                "spend": 2362.966047874939,
+                "roas": 8.0475,
+                "ctr": 0.011675
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 1898.74,
+                "spend": 1508.27,
+                "roas": 1.645,
+                "ctr": 0.010624999999999999
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 15958.84,
+                "spend": 2578.89,
+                "roas": 7.890000000000001,
+                "ctr": 0.020624999999999998
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 104.22,
+                "spend": 101.72,
+                "roas": 1.02,
+                "ctr": 0.0134
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 2272.13,
+                "spend": 590.02,
+                "roas": 3.85,
+                "ctr": 0.0087
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 260.75,
+                "spend": 197.04,
+                "roas": 1.32,
+                "ctr": 0.006
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 3519.89,
+                "spend": 149.35,
+                "roas": 23.57,
+                "ctr": 0.0219
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "wo en fit & lift",
+                "revenue": 1886.8,
+                "spend": 675.53,
+                "roas": 2.79,
+                "ctr": 0.0223
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 18140.32,
+                "spend": 3238.95,
+                "roas": 6.6579999999999995,
+                "ctr": 0.00922
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women fit & ift",
+                "revenue": 197.61,
+                "spend": 703.44,
+                "roas": 0.28,
+                "ctr": 0.0123
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 2389.79,
+                "spend": 842.6800000000001,
+                "roas": 2.6550000000000002,
+                "ctr": 0.019549999999999998
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 12550.83,
+                "spend": 2577.33,
+                "roas": 7.9375,
+                "ctr": 0.0082
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 4811.280000000001,
+                "spend": 1412.32,
+                "roas": 5.185,
+                "ctr": 0.011625
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 12047.88,
+                "spend": 1149.74,
+                "roas": 8.936666666666666,
+                "ctr": 0.010766666666666667
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 1254.81,
+                "spend": 522.78,
+                "roas": 2.4,
+                "ctr": 0.0106
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 729.55,
+                "spend": 624.67,
+                "roas": 1.17,
+                "ctr": 0.0134
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 1682.54,
+                "spend": 1229.75,
+                "roas": 1.37,
+                "ctr": 0.0067
+            },
+            {
+                "date": "2025-03-20",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 5961.87,
+                "spend": 207.34,
+                "roas": 28.75,
+                "ctr": 0.0155
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men -| athleisure cooling",
+                "revenue": 3978.72,
+                "spend": 407.2384851586489,
+                "roas": 9.77,
+                "ctr": 0.0221
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4763.62,
+                "spend": 2978.2200000000003,
+                "roas": 2.0175,
+                "ctr": 0.006274999999999999
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men comfort-ax launch",
+                "revenue": 4829.13,
+                "spend": 170.95,
+                "roas": 28.25,
+                "ctr": 0.0169
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 4441.780000000001,
+                "spend": 1278.71,
+                "roas": 3.3299999999999996,
+                "ctr": 0.012733333333333333
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men old colors drop",
+                "revenue": 3459.01,
+                "spend": 156.85,
+                "roas": 22.05,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 11679.52,
+                "spend": 2259.89,
+                "roas": 5.55,
+                "ctr": 0.010620000000000001
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3822.26,
+                "spend": 2976.98,
+                "roas": 1.61,
+                "ctr": 0.0152
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 21331.28,
+                "spend": 1566.71,
+                "roas": 19.37,
+                "ctr": 0.0211
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 2499.2696,
+                "spend": 221.96,
+                "roas": 11.26,
+                "ctr": 0.0099
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women cotton cla-sics",
+                "revenue": 1607.8,
+                "spend": 535.96,
+                "roas": 3.0,
+                "ctr": 0.0124
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 21249.05,
+                "spend": 1444.73,
+                "roas": 13.1125,
+                "ctr": 0.00855
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 3724.48,
+                "spend": 2101.17,
+                "roas": 2.27,
+                "ctr": 0.018025
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 6133.92,
+                "spend": 2266.9267307692307,
+                "roas": 3.2424999999999997,
+                "ctr": 0.008375
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 5526.46,
+                "spend": 1569.34,
+                "roas": 3.575,
+                "ctr": 0.0098
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 17170.83,
+                "spend": 1390.33,
+                "roas": 22.4625,
+                "ctr": 0.012125
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 1042.2230000000002,
+                "spend": 801.71,
+                "roas": 1.3,
+                "ctr": 0.0171
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 514.19,
+                "spend": 583.97,
+                "roas": 0.88,
+                "ctr": 0.0068
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 1185.69,
+                "spend": 783.08,
+                "roas": 1.51,
+                "ctr": 0.006
+            },
+            {
+                "date": "2025-03-21",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 11565.83,
+                "spend": 421.04,
+                "roas": 27.47,
+                "ctr": 0.0122
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3131.57,
+                "spend": 1834.24,
+                "roas": 2.2225,
+                "ctr": 0.00735
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men c-mfortmax launch",
+                "revenue": 4040.04,
+                "spend": 195.59,
+                "roas": 20.66,
+                "ctr": 0.0136
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 8213.64,
+                "spend": 1440.83,
+                "roas": 5.836666666666667,
+                "ctr": 0.016366666666666668
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 12909.88,
+                "spend": 1006.72,
+                "roas": 15.565,
+                "ctr": 0.00985
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men signature oft",
+                "revenue": 1056.63,
+                "spend": 761.92,
+                "roas": 1.39,
+                "ctr": 0.0123
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 1800.66,
+                "spend": 2249.13,
+                "roas": 0.7975000000000001,
+                "ctr": 0.012750000000000001
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 18003.7,
+                "spend": 904.18,
+                "roas": 22.32,
+                "ctr": 0.02095
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 13861.91,
+                "spend": 1808.6,
+                "roas": 11.135,
+                "ctr": 0.0194
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 2663.68,
+                "spend": 316.07,
+                "roas": 8.43,
+                "ctr": 0.0133
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 11828.4,
+                "spend": 871.84,
+                "roas": 13.57,
+                "ctr": 0.0238
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 3524.99,
+                "spend": 103.52,
+                "roas": 34.05,
+                "ctr": 0.0112
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 268.12,
+                "spend": 50.46,
+                "roas": 5.31,
+                "ctr": 0.015
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 15668.263599999998,
+                "spend": 962.1,
+                "roas": 31.587500000000002,
+                "ctr": 0.0093
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 8862.7,
+                "spend": 2059.8599999999997,
+                "roas": 7.32,
+                "ctr": 0.017125
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 1175.76,
+                "spend": 523.78,
+                "roas": 2.24,
+                "ctr": 0.0146
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women otton classics",
+                "revenue": 4678.65,
+                "spend": 742.08,
+                "roas": 6.3,
+                "ctr": 0.0107
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 10026.220000000001,
+                "spend": 2208.94,
+                "roas": 7.33,
+                "ctr": 0.00728
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 12997.08,
+                "spend": 2450.84,
+                "roas": 7.884,
+                "ctr": 0.01182
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 9905.58,
+                "spend": 1505.0454751131222,
+                "roas": 7.633333333333333,
+                "ctr": 0.008666666666666666
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 839.05,
+                "spend": 254.75,
+                "roas": 3.29,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-22",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 3503.39,
+                "spend": 1213.04,
+                "roas": 2.89,
+                "ctr": 0.0075
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4631.37,
+                "spend": 1877.2399999999998,
+                "roas": 3.968,
+                "ctr": 0.00742
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 5334.54,
+                "spend": 609.37,
+                "roas": 24.995,
+                "ctr": 0.016149999999999998
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 11595.38,
+                "spend": 2484.79,
+                "roas": 14.187499999999998,
+                "ctr": 0.01185
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 2552.32,
+                "spend": 1529.24,
+                "roas": 4.3775,
+                "ctr": 0.016075
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 20754.587,
+                "spend": 1915.96,
+                "roas": 13.48,
+                "ctr": 0.0198
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 14134.7608,
+                "spend": 1334.96,
+                "roas": 14.093333333333334,
+                "ctr": 0.015600000000000001
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 639.68,
+                "spend": 157.16,
+                "roas": 4.07,
+                "ctr": 0.0087
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 21.72,
+                "spend": 211.02,
+                "roas": 0.1,
+                "ctr": 0.0106
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "w men fit & lift",
+                "revenue": 5579.93,
+                "spend": 561.52,
+                "roas": 9.94,
+                "ctr": 0.0212
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 19159.84,
+                "spend": 1418.78,
+                "roas": 15.385,
+                "ctr": 0.01215
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women cotton classis",
+                "revenue": 3761.38,
+                "spend": 767.78,
+                "roas": 4.9,
+                "ctr": 0.0131
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women fit & li t",
+                "revenue": 788.83,
+                "spend": 388.5862068965518,
+                "roas": 2.03,
+                "ctr": 0.0078
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 1481.6,
+                "spend": 822.62,
+                "roas": 5.355,
+                "ctr": 0.018299999999999997
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women seaml-ss everyday",
+                "revenue": 604.97,
+                "spend": 281.15,
+                "roas": 2.15,
+                "ctr": 0.0106
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 3862.99,
+                "spend": 1186.96,
+                "roas": 4.855,
+                "ctr": 0.00705
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 8642.0,
+                "spend": 2007.8899999999999,
+                "roas": 6.4319999999999995,
+                "ctr": 0.00984
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 21928.95,
+                "spend": 1581.1399999999999,
+                "roas": 19.055,
+                "ctr": 0.012225
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 7781.3,
+                "spend": 1040.59,
+                "roas": 7.48,
+                "ctr": 0.011
+            },
+            {
+                "date": "2025-03-23",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 1302.76,
+                "spend": 294.24,
+                "roas": 4.43,
+                "ctr": 0.0216
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men bol colors drop",
+                "revenue": 691.14,
+                "spend": 486.31,
+                "roas": 1.42,
+                "ctr": 0.0096
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 2864.6099999999997,
+                "spend": 1464.77,
+                "roas": 3.0949999999999998,
+                "ctr": 0.0066749999999999995
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 10014.6,
+                "spend": 2029.05,
+                "roas": 4.37,
+                "ctr": 0.012025000000000001
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men premium mod-l",
+                "revenue": 226.24,
+                "spend": 668.65,
+                "roas": 0.34,
+                "ctr": 0.0057
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 8861.31,
+                "spend": 1954.5,
+                "roas": 9.06,
+                "ctr": 0.008025000000000001
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men signa-ure soft",
+                "revenue": 584.95,
+                "spend": 653.05,
+                "roas": 0.9,
+                "ctr": 0.0215
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 2383.21,
+                "spend": 1571.38,
+                "roas": 1.65,
+                "ctr": 0.0129
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men | athleisure coling",
+                "revenue": 620.68,
+                "spend": 455.41,
+                "roas": 1.36,
+                "ctr": 0.02
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 17634.31,
+                "spend": 1974.38,
+                "roas": 11.910000000000002,
+                "ctr": 0.022966666666666666
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 2295.67,
+                "spend": 472.82,
+                "roas": 4.86,
+                "ctr": 0.0102
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 1018.5,
+                "spend": 765.14,
+                "roas": 1.33,
+                "ctr": 0.0133
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 12344.65,
+                "spend": 1859.77,
+                "roas": 7.467499999999999,
+                "ctr": 0.00955
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women f t & lift",
+                "revenue": 1763.36,
+                "spend": 1002.51,
+                "roas": 1.76,
+                "ctr": 0.018
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 6382.57,
+                "spend": 2303.74,
+                "roas": 3.3000000000000003,
+                "ctr": 0.0168
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 1370.81,
+                "spend": 550.3,
+                "roas": 2.49,
+                "ctr": 0.0132
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 7577.61,
+                "spend": 2599.75,
+                "roas": 4.9675,
+                "ctr": 0.006125
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 7391.400000000001,
+                "spend": 2264.74,
+                "roas": 3.7279999999999993,
+                "ctr": 0.01074
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 12875.5804,
+                "spend": 2947.7749999999996,
+                "roas": 5.9475,
+                "ctr": 0.011375
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 11229.53,
+                "spend": 397.01,
+                "roas": 28.29,
+                "ctr": 0.0131
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 247.39,
+                "spend": 436.88,
+                "roas": 0.57,
+                "ctr": 0.0084
+            },
+            {
+                "date": "2025-03-24",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 4191.36,
+                "spend": 733.53,
+                "roas": 5.71,
+                "ctr": 0.0123
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 5544.26,
+                "spend": 1809.0458741258742,
+                "roas": 3.2379999999999995,
+                "ctr": 0.007520000000000001
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 17812.05,
+                "spend": 2378.1,
+                "roas": 27.494,
+                "ctr": 0.01992
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 13159.76,
+                "spend": 1372.81,
+                "roas": 12.516,
+                "ctr": 0.01068
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men sig-ature soft",
+                "revenue": 559.47,
+                "spend": 104.66,
+                "roas": 5.35,
+                "ctr": 0.0128
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 2165.37,
+                "spend": 2146.46,
+                "roas": 1.1800000000000002,
+                "ctr": 0.014425
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 9017.77,
+                "spend": 574.74,
+                "roas": 17.84,
+                "ctr": 0.026
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 21102.07,
+                "spend": 1432.56,
+                "roas": 18.323333333333334,
+                "ctr": 0.022566666666666665
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "w men summer invisible",
+                "revenue": 764.82,
+                "spend": 718.49,
+                "roas": 1.06,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women coton classics",
+                "revenue": 4059.54,
+                "spend": 389.7,
+                "roas": 10.42,
+                "ctr": 0.0106
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 10118.22,
+                "spend": 1748.59,
+                "roas": 10.985,
+                "ctr": 0.009425
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 8539.94,
+                "spend": 2067.98,
+                "roas": 9.425,
+                "ctr": 0.0217
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 11123.99,
+                "spend": 1351.92,
+                "roas": 9.2775,
+                "ctr": 0.009174999999999999
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 12736.378,
+                "spend": 2180.75,
+                "roas": 5.775,
+                "ctr": 0.010975
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 13065.85,
+                "spend": 2615.54,
+                "roas": 5.5725,
+                "ctr": 0.009300000000000001
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women-studio s orts",
+                "revenue": 2420.18,
+                "spend": 926.34,
+                "roas": 2.61,
+                "ctr": 0.0066
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 1127.97,
+                "spend": 516.42,
+                "roas": 2.18,
+                "ctr": 0.0137
+            },
+            {
+                "date": "2025-03-25",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 286.58,
+                "spend": 217.77,
+                "roas": 1.32,
+                "ctr": 0.0063
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3395.23,
+                "spend": 2756.0299999999997,
+                "roas": 1.3075,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 11989.87,
+                "spend": 2027.99,
+                "roas": 7.779999999999999,
+                "ctr": 0.0174
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 7738.610000000001,
+                "spend": 1005.48,
+                "roas": 8.425,
+                "ctr": 0.010475
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 5904.030000000001,
+                "spend": 2165.23,
+                "roas": 4.085,
+                "ctr": 0.014225
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 22755.47,
+                "spend": 1478.1699999999998,
+                "roas": 40.285000000000004,
+                "ctr": 0.02215
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men-athleisure cooli-g",
+                "revenue": 4922.8668,
+                "spend": 536.26,
+                "roas": 9.18,
+                "ctr": 0.0256
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 1011.35,
+                "spend": 906.27,
+                "roas": 1.12,
+                "ctr": 0.0044
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 1595.57,
+                "spend": 544.94,
+                "roas": 2.93,
+                "ctr": 0.0107
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "men_signature_soft",
+                "revenue": 237.25,
+                "spend": 1113.19,
+                "roas": 0.21,
+                "ctr": 0.0157
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "woen summer invisible",
+                "revenue": 2465.89,
+                "spend": 137.63,
+                "roas": 17.92,
+                "ctr": 0.0118
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 7381.98,
+                "spend": 2059.7,
+                "roas": 3.5666666666666664,
+                "ctr": 0.0051333333333333335
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 13714.33,
+                "spend": 1607.46,
+                "roas": 11.796666666666667,
+                "ctr": 0.020766666666666666
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women seam-ess everyday",
+                "revenue": 3154.27,
+                "spend": 81.48,
+                "roas": 38.71,
+                "ctr": 0.0092
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 9513.42,
+                "spend": 1327.66,
+                "roas": 6.6825,
+                "ctr": 0.00715
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 6213.21,
+                "spend": 1468.51,
+                "roas": 5.78,
+                "ctr": 0.0097
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 9130.35,
+                "spend": 1427.55,
+                "roas": 11.256666666666666,
+                "ctr": 0.010733333333333336
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 10096.92,
+                "spend": 1397.49,
+                "roas": 9.435,
+                "ctr": 0.0092
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 9584.93,
+                "spend": 580.1899999999999,
+                "roas": 16.845,
+                "ctr": 0.0116
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 5289.0056,
+                "spend": 1797.03,
+                "roas": 3.25,
+                "ctr": 0.0156
+            },
+            {
+                "date": "2025-03-26",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 1720.98,
+                "spend": 173.96,
+                "roas": 9.89,
+                "ctr": 0.0137
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men -ignature soft",
+                "revenue": 514.43,
+                "spend": 897.95,
+                "roas": 0.57,
+                "ctr": 0.0134
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 1731.35,
+                "spend": 1261.54,
+                "roas": 1.8525,
+                "ctr": 0.00935
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 1951.06,
+                "spend": 925.87,
+                "roas": 6.493333333333332,
+                "ctr": 0.0106
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 7971.4025,
+                "spend": 1198.11,
+                "roas": 8.386,
+                "ctr": 0.01168
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 4597.26,
+                "spend": 1617.56,
+                "roas": 4.2475000000000005,
+                "ctr": 0.017400000000000002
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 15715.8662,
+                "spend": 3104.3500000000004,
+                "roas": 5.45,
+                "ctr": 0.02075
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men_bold_colors_drop",
+                "revenue": 1663.93,
+                "spend": 323.58,
+                "roas": 5.14,
+                "ctr": 0.0061
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 8440.52,
+                "spend": 532.64,
+                "roas": 16.645,
+                "ctr": 0.017599999999999998
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 3201.91,
+                "spend": 323.21,
+                "roas": 9.91,
+                "ctr": 0.0191
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women -it & lift",
+                "revenue": 2995.53,
+                "spend": 874.6,
+                "roas": 3.43,
+                "ctr": 0.0204
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 26505.760000000002,
+                "spend": 2395.58,
+                "roas": 11.844,
+                "ctr": 0.01042
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 9417.060000000001,
+                "spend": 2146.56,
+                "roas": 4.4750000000000005,
+                "ctr": 0.0212
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 4860.75,
+                "spend": 1887.0,
+                "roas": 5.1066666666666665,
+                "ctr": 0.0076
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 10497.27,
+                "spend": 2254.36,
+                "roas": 11.8475,
+                "ctr": 0.0109
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 17797.06,
+                "spend": 792.04,
+                "roas": 24.175,
+                "ctr": 0.013
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 7959.540000000001,
+                "spend": 1294.43,
+                "roas": 7.98,
+                "ctr": 0.009899999999999999
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 758.32,
+                "spend": 436.19,
+                "roas": 1.74,
+                "ctr": 0.0069
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 1428.81,
+                "spend": 407.76,
+                "roas": 3.5,
+                "ctr": 0.0058
+            },
+            {
+                "date": "2025-03-27",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 2556.29,
+                "spend": 509.76,
+                "roas": 5.01,
+                "ctr": 0.0084
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 6361.61,
+                "spend": 1921.262191780822,
+                "roas": 3.054,
+                "ctr": 0.0099
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 6373.29,
+                "spend": 1237.6399999999999,
+                "roas": 6.3,
+                "ctr": 0.014333333333333332
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men omfortmax launch",
+                "revenue": 7214.13,
+                "spend": 377.81,
+                "roas": 19.09,
+                "ctr": 0.022
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 7317.59,
+                "spend": 1709.41,
+                "roas": 10.790000000000001,
+                "ctr": 0.011075
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3790.69,
+                "spend": 2363.88,
+                "roas": 1.746,
+                "ctr": 0.01452
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 15811.84,
+                "spend": 1616.71,
+                "roas": 10.846666666666666,
+                "ctr": 0.022033333333333332
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 1181.6,
+                "spend": 238.13,
+                "roas": 4.96,
+                "ctr": 0.0147
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 1853.27,
+                "spend": 377.92,
+                "roas": 4.9,
+                "ctr": 0.0099
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men_premium_modal",
+                "revenue": 569.75,
+                "spend": 109.26,
+                "roas": 5.21,
+                "ctr": 0.0139
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "men_|_athleisure_cooling",
+                "revenue": 7825.5,
+                "spend": 234.57,
+                "roas": 33.36,
+                "ctr": 0.0211
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 25190.18,
+                "spend": 1717.29,
+                "roas": 11.996,
+                "ctr": 0.01202
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 7615.11,
+                "spend": 3838.62,
+                "roas": 2.436,
+                "ctr": 0.01532
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 9875.82,
+                "spend": 1979.1166854983394,
+                "roas": 10.605,
+                "ctr": 0.009225
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women seamless-everyday",
+                "revenue": 4743.39,
+                "spend": 286.52,
+                "roas": 16.56,
+                "ctr": 0.0089
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women summ-r invisible",
+                "revenue": 221.92,
+                "spend": 401.36,
+                "roas": 0.55,
+                "ctr": 0.0113
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 9565.79,
+                "spend": 2183.0,
+                "roas": 5.364999999999999,
+                "ctr": 0.011
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 3298.7700000000004,
+                "spend": 1185.167962085308,
+                "roas": 3.5400000000000005,
+                "ctr": 0.007366666666666667
+            },
+            {
+                "date": "2025-03-28",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 5265.78,
+                "spend": 1091.41,
+                "roas": 7.005,
+                "ctr": 0.00905
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3592.718,
+                "spend": 2519.88,
+                "roas": 1.8380000000000003,
+                "ctr": 0.0101
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men comfortma- launch",
+                "revenue": 2255.09,
+                "spend": 711.98,
+                "roas": 3.17,
+                "ctr": 0.0154
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 6892.59,
+                "spend": 1606.6999999999998,
+                "roas": 4.6000000000000005,
+                "ctr": 0.01333333333333333
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 11126.19,
+                "spend": 1695.6799999999998,
+                "roas": 6.9879999999999995,
+                "ctr": 0.00964
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men signatue soft",
+                "revenue": 831.84,
+                "spend": 891.09,
+                "roas": 0.93,
+                "ctr": 0.0166
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 3090.25,
+                "spend": 1794.93,
+                "roas": 2.2800000000000002,
+                "ctr": 0.01385
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 26089.67,
+                "spend": 1665.8204270462634,
+                "roas": 18.7425,
+                "ctr": 0.02
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 706.92,
+                "spend": 892.68,
+                "roas": 0.79,
+                "ctr": 0.0084
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "men_|_atleisure_cooling",
+                "revenue": 5287.52,
+                "spend": 668.0,
+                "roas": 7.92,
+                "ctr": 0.0172
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 22413.38,
+                "spend": 1572.26,
+                "roas": 15.3325,
+                "ctr": 0.010475
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 3284.44,
+                "spend": 1345.29,
+                "roas": 2.143333333333333,
+                "ctr": 0.01643333333333333
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 2285.35,
+                "spend": 1395.47,
+                "roas": 1.4,
+                "ctr": 0.0075
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 11177.69,
+                "spend": 1756.65,
+                "roas": 9.1425,
+                "ctr": 0.00935
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 14195.95,
+                "spend": 2304.51,
+                "roas": 8.392,
+                "ctr": 0.011179999999999999
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 3227.86,
+                "spend": 1265.8274509803923,
+                "roas": 2.55,
+                "ctr": 0.0108
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women_fit_&_lift",
+                "revenue": 2736.0,
+                "spend": 974.37,
+                "roas": 9.09,
+                "ctr": 0.01235
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women_seamless_everyday",
+                "revenue": 5646.37,
+                "spend": 768.2,
+                "roas": 8.286666666666667,
+                "ctr": 0.007200000000000001
+            },
+            {
+                "date": "2025-03-29",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 730.66,
+                "spend": 439.11,
+                "roas": 1.66,
+                "ctr": 0.0101
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 3093.34,
+                "spend": 1861.39,
+                "roas": 2.496,
+                "ctr": 0.009179999999999999
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men c mfortmax launch",
+                "revenue": 6055.03,
+                "spend": 940.72,
+                "roas": 6.44,
+                "ctr": 0.0185
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 7011.41,
+                "spend": 2586.04,
+                "roas": 2.6425,
+                "ctr": 0.014075
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 13510.06,
+                "spend": 2601.86,
+                "roas": 5.054,
+                "ctr": 0.01036
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men sig ature soft",
+                "revenue": 148.76,
+                "spend": 609.56,
+                "roas": 0.24,
+                "ctr": 0.013
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 1825.54,
+                "spend": 2223.19,
+                "roas": 0.845,
+                "ctr": 0.01465
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 26612.52,
+                "spend": 1738.65,
+                "roas": 20.3625,
+                "ctr": 0.020425
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 5243.05,
+                "spend": 628.85,
+                "roas": 8.34,
+                "ctr": 0.0186
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "wome fit and lift",
+                "revenue": 1872.58,
+                "spend": 644.36,
+                "roas": 2.91,
+                "ctr": 0.0187
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 13667.98,
+                "spend": 2174.15,
+                "roas": 6.836666666666666,
+                "ctr": 0.013966666666666667
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 2702.1800000000003,
+                "spend": 2212.86,
+                "roas": 1.0666666666666667,
+                "ctr": 0.02036666666666667
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women fit lift",
+                "revenue": 2384.39,
+                "spend": 209.82,
+                "roas": 11.36,
+                "ctr": 0.015
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 9833.097,
+                "spend": 2307.76,
+                "roas": 4.6899999999999995,
+                "ctr": 0.00824
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 7187.54,
+                "spend": 2580.04,
+                "roas": 3.8625,
+                "ctr": 0.0085
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 6980.99,
+                "spend": 1218.5190615835777,
+                "roas": 8.200000000000001,
+                "ctr": 0.010533333333333334
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women-studio sports",
+                "revenue": 2962.2,
+                "spend": 634.5699999999999,
+                "roas": 5.1499999999999995,
+                "ctr": 0.01295
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women_cotton_classics",
+                "revenue": 3148.46,
+                "spend": 1613.8899999999999,
+                "roas": 1.81,
+                "ctr": 0.00905
+            },
+            {
+                "date": "2025-03-30",
+                "campaign_name_clean": "women_summer_invisible",
+                "revenue": 1835.12,
+                "spend": 88.82,
+                "roas": 20.66,
+                "ctr": 0.0098
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men bold colors drop",
+                "revenue": 4152.17,
+                "spend": 2644.91,
+                "roas": 1.5699999999999998,
+                "ctr": 0.01
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men comfortmax launch",
+                "revenue": 8278.060000000001,
+                "spend": 2125.7,
+                "roas": 4.6175,
+                "ctr": 0.0124
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men premium modal",
+                "revenue": 12495.2,
+                "spend": 1498.43,
+                "roas": 12.364,
+                "ctr": 0.01022
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men signature soft",
+                "revenue": 4018.85,
+                "spend": 2477.96,
+                "roas": 1.7399999999999998,
+                "ctr": 0.0129
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men | athleisure cooling",
+                "revenue": 23648.71,
+                "spend": 1902.8600000000001,
+                "roas": 17.19,
+                "ctr": 0.02015
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men-athleisure cooling",
+                "revenue": 7467.5,
+                "spend": 717.48,
+                "roas": 10.41,
+                "ctr": 0.0232
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "men_comfortmax_launch",
+                "revenue": 4205.38,
+                "spend": 95.48,
+                "roas": 44.04,
+                "ctr": 0.0135
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "wo-en | studio sports",
+                "revenue": 6174.38,
+                "spend": 286.41,
+                "roas": 21.56,
+                "ctr": 0.0124
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women cotton classics",
+                "revenue": 6168.9400000000005,
+                "spend": 2723.01,
+                "roas": 2.176,
+                "ctr": 0.00996
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women fit & lft",
+                "revenue": 1567.64,
+                "spend": 737.83,
+                "roas": 2.12,
+                "ctr": 0.0154
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women fit & lift",
+                "revenue": 4906.16,
+                "spend": 1777.95,
+                "roas": 4.04,
+                "ctr": 0.0167
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women fit and lift",
+                "revenue": 5947.96,
+                "spend": 204.0,
+                "roas": 29.16,
+                "ctr": 0.0192
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women seamless everyday",
+                "revenue": 8336.37,
+                "spend": 2876.5253988868276,
+                "roas": 4.787999999999999,
+                "ctr": 0.0083
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women summer invisible",
+                "revenue": 8880.2,
+                "spend": 2638.24,
+                "roas": 3.136,
+                "ctr": 0.01078
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women | studio sports",
+                "revenue": 9043.73,
+                "spend": 1629.5700000000002,
+                "roas": 6.336666666666666,
+                "ctr": 0.008666666666666668
+            },
+            {
+                "date": "2025-03-31",
+                "campaign_name_clean": "women_|_studio_sports",
+                "revenue": 1165.65,
+                "spend": 484.86,
+                "roas": 2.4,
+                "ctr": 0.0107
+            }
+        ]
+    },
+    "insight": [
+        {
+            "hypothesis_id": "H1",
+            "campaign": "men bold colors drop",
+            "issue": "Low Click-Through Rate (CTR) suggests creative fatigue or poor ad relevance.",
+            "reasoning": "The 'men bold colors drop' campaign consistently displays CTRs significantly below the overall average of 0.013, frequently ranging from 0.004 to 0.010 throughout the observed period (March 2025). This sustained low engagement indicates that the existing ad creatives may no longer be effectively capturing audience attention or compelling users to click, possibly due to overexposure or a lack of fresh messaging.",
+            "metrics_considered": [
+                "ctr"
+            ],
+            "confidence_level": "high",
+            "impact": "critical",
+            "time_window": {
+                "start": "2025-03-01",
+                "end": "2025-03-31"
+            }
+        },
+        {
+            "hypothesis_id": "H2",
+            "campaign": "women seamless everyday",
+            "issue": "Sub-optimal CTR indicates creative-audience mismatch or unengaging ad visuals.",
+            "reasoning": "The 'women seamless everyday' campaign shows a persistent pattern of low CTRs, often falling between 0.006 and 0.009. This suggests that the current ad creatives are either not effectively communicating the product's value proposition, or the visuals and messaging are not resonating strongly enough with the targeted audience segments, leading to low click-through rates.",
+            "metrics_considered": [
+                "ctr"
+            ],
+            "confidence_level": "medium",
+            "impact": "high",
+            "time_window": {
+                "start": "2025-03-01",
+                "end": "2025-03-31"
+            }
+        },
+        {
+            "hypothesis_id": "H3",
+            "campaign": "women cotton classics",
+            "issue": "Poor creative performance is driving consistently low CTRs for the campaign.",
+            "reasoning": "Throughout March 2025, the 'women cotton classics' campaign frequently records CTR values below the global average, sometimes dropping to 0.005-0.007. This pattern strongly implies that the current ad creatives are failing to capture audience interest or provide a compelling reason to click, pointing towards issues with visual appeal, headline effectiveness, or the call-to-action.",
+            "metrics_considered": [
+                "ctr"
+            ],
+            "confidence_level": "medium",
+            "impact": "high",
+            "time_window": {
+                "start": "2025-03-01",
+                "end": "2025-03-31"
+            }
+        }
+    ],
+    "creative": [
+        {
+            "campaign": "men bold colors drop",
+            "hypothesis_id": "H1",
+            "problem_summary": "The 'men bold colors drop' campaign suffers from creative fatigue and declining ad relevance, leading to consistently low Click-Through Rates (CTRs) below the overall average.",
+            "creative_strategy": "Revitalize ad creatives by showcasing the bold colors with high-energy, dynamic visuals and strong scarcity/urgency messaging to combat fatigue and drive immediate action. Focus on how these colors elevate personal style and make a statement.",
+            "ad_copy_suggestions": [
+                "\ud83d\udea8 Last Chance for Bold! Our 'Bold Colors Drop' is selling out fast. Grab your statement piece before it's gone forever!",
+                "Unleash Your Vibe: The 'Bold Colors Drop' is here to redefine your style. Click to stand out from the crowd!",
+                "Tired of Basic? Discover the 'Bold Colors Drop' that everyone's talking about. Tap to explore the limited collection!"
+            ],
+            "visual_suggestions": [
+                "Fast-paced video reel featuring diverse male models confidently wearing the bold colors in urban or active settings, with quick cuts and dynamic transitions set to upbeat music.",
+                "Carousel ad showcasing each bold color individually with a close-up of the fabric texture, followed by a full outfit shot, highlighting versatility and uniqueness.",
+                "Short, impactful UGC video of a satisfied customer unboxing or styling their 'bold color' item, emphasizing the vibrant shade and how it makes them feel."
+            ],
+            "audience_targeting_adjustments": [
+                "Implement aggressive frequency capping (e.g., 2 impressions/day) for existing audiences to reduce ad fatigue for the current creative set.",
+                "Create a new Lookalike Audience (LLA) based on existing customers who have purchased 'bold' or 'statement' apparel items in the past 60 days.",
+                "Segment and retarget individuals who interacted with previous 'bold colors drop' ads (likes, comments, shares) but did not click, with these refreshed creative concepts."
+            ],
+            "confidence_level": "high",
+            "priority": "high"
+        },
+        {
+            "campaign": "women seamless everyday",
+            "hypothesis_id": "H2",
+            "problem_summary": "The 'women seamless everyday' campaign exhibits sub-optimal CTRs, indicating a mismatch between current creatives and audience expectations for comfort and versatility, or simply unengaging ad visuals.",
+            "creative_strategy": "Redesign creatives to strongly emphasize the core benefits of seamless and everyday wear: ultimate comfort, versatile styling, and a 'second-skin' feel. Use relatable, authentic scenarios to connect with the target audience's daily life.",
+            "ad_copy_suggestions": [
+                "Your New Everyday Essential: Experience cloud-like comfort with our Seamless Collection. Shop now for effortless style that moves with you!",
+                "From Lounge to Lunch: Our Seamless Everyday pieces redefine comfort and versatility. Discover style that doesn't compromise on feel.",
+                "Finally, Seamless You'll Live In! Join thousands of women loving the Everyday Comfort. Tap to feel the difference and upgrade your wardrobe!"
+            ],
+            "visual_suggestions": [
+                "UGC-style video featuring women of various body types wearing the seamless collection while performing everyday activities (e.g., working from home, light stretching, running errands, enjoying a coffee).",
+                "Carousel ad showcasing the same seamless piece styled in 3-4 different ways (e.g., active, casual, dressed up slightly), highlighting its versatility and how easily it integrates into any lifestyle.",
+                "High-quality lifestyle photography with soft, natural lighting, emphasizing the fabric's texture, stretch, and flattering fit, worn by models in comfortable, authentic poses."
+            ],
+            "audience_targeting_adjustments": [
+                "Refine audience interests to include 'comfort wear,' 'athleisure brands,' 'sustainable fashion,' 'minimalist style,' and 'yoga/pilates' to better match product value.",
+                "Create new custom audiences for website visitors who viewed 'seamless' category pages or added seamless items to cart but didn't purchase, and retarget with benefit-driven messaging.",
+                "Test new Lookalike Audiences (LLAs) based on purchasers of 'everyday essentials' or 'comfort apparel' from the last 90 days, focusing on engagement metrics."
+            ],
+            "confidence_level": "medium",
+            "priority": "high"
+        },
+        {
+            "campaign": "women cotton classics",
+            "hypothesis_id": "H3",
+            "problem_summary": "The 'women cotton classics' campaign is experiencing consistently low CTRs due to poor creative performance, suggesting a failure to highlight the inherent appeal of natural cotton and timeless classic style.",
+            "creative_strategy": "Revitalize creatives by focusing on the timeless appeal, natural comfort, and sustainable aspects of cotton. Use aspirational yet authentic visuals and messaging that evoke a sense of heritage, quality, and everyday luxury.",
+            "ad_copy_suggestions": [
+                "Timeless Comfort, Naturally You: Rediscover the joy of pure cotton with our Classics Collection. Shop essentials designed to last.",
+                "Beyond Trends: The Enduring Quality of Cotton Classics. Invest in pieces that feel as good as they look, season after season.",
+                "Feel the Difference of Real Cotton. Our Classics are customer favorites for a reason \u2013 discover why they're essential for every wardrobe!"
+            ],
+            "visual_suggestions": [
+                "Editorial-style photoshoot featuring models in a natural, serene environment (e.g., sunlit home, outdoors with natural textures) wearing the cotton classics, emphasizing comfort, relaxed elegance, and the fabric's softness.",
+                "Short video highlighting the journey of cotton, from field to fabric, showcasing the natural fibers and the garment's soft, breathable texture through motion graphics and close-up shots.",
+                "Carousel ad featuring testimonials from real customers about the longevity, comfort, and versatile styling of their 'Cotton Classics', paired with high-quality product images."
+            ],
+            "audience_targeting_adjustments": [
+                "Target audiences with declared interests in 'natural fabrics,' 'sustainable living,' 'ethical fashion,' 'quality craftsmanship,' 'classic style brands,' and 'eco-friendly products'.",
+                "Implement a retargeting campaign for customers who have previously purchased items from 'cotton' categories or high-value 'classic' collections, emphasizing new arrivals or bundle offers.",
+                "Exclude audiences who show high engagement with 'fast fashion' or 'trend-driven' content, as their preferences may not align with the timeless, quality focus of 'Cotton Classics'."
+            ],
+            "confidence_level": "medium",
+            "priority": "high"
+        }
+    ]
+}

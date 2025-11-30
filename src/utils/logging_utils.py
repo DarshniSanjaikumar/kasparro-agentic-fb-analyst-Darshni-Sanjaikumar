@@ -18,7 +18,7 @@ class Logger:
         log_data = {
             "agent": self.agent_name,
             "status": status,
-            "duration_sec": duration,
+            "duration_sec": round(duration, 2),
             "timestamp": datetime.utcnow().isoformat(),
         }
 
@@ -32,5 +32,18 @@ class Logger:
         filename = datetime.utcnow().strftime("%Y%m%d_%H%M%S") + ".json"
         filepath = os.path.join(self.log_folder, filename)
 
-        with open(filepath, "w", encoding="utf-8") as f:
+        with open(filepath, "w") as f:
             json.dump(data, f, indent=4)
+
+
+# 🔹 Console Logging Helpers (for DataAgent, PlannerAgent, etc.)
+def log_info(message: str):
+    """Lightweight success/info logs for terminal visibility."""
+    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"🟢 [INFO - {timestamp}] {message}")
+
+
+def log_error(message: str):
+    """Error logging with clear visual marker."""
+    timestamp = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"🔴 [ERROR - {timestamp}] {message}")

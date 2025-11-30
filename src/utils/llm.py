@@ -1,22 +1,19 @@
-# src/utils/llm.py
-
 import os
-from groq import Groq
+import google.generativeai as genai
 
-class LLM:
-    def __init__(self, model="llama-3.1-8b-instant"):
-        api_key = os.getenv("GROQ_API_KEY")
+class GeminiLLM:
+    def __init__(self, model_name="gemini-2.5-flash", api_key=None):
+        api_key = api_key or os.getenv("GEMINI_API_KEY")
         if not api_key:
-            raise ValueError("GROQ_API_KEY not set in environment variables!")
+            raise ValueError("API key not provided or found in environment variables.")
+        
+        genai.configure(api_key=api_key)
+        self.model_name = model_name
+        self.model = genai.GenerativeModel(model_name)
 
-        self.client = Groq(api_key=api_key)
-        self.model = model
-
-    def __call__(self, prompt: str) -> str:
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}]
-        )
-
-        # FIX: Groq returns message object, not dictionary
-        return response.choices[0].message.content
+    def llm_call(self, prompt: str) -> str:
+        """
+        Send a prompt to Gemini model and return the response text.
+        """
+        response = self.model.generate_content(prompt)
+        return response.text

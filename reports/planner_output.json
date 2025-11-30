@@ -1,0 +1,19 @@
+{
+    "objective": "Suggest creatives to improve low CTR ads",
+    "steps": [
+        "data_loading",
+        "filter_low_ctr_ads",
+        "insight_generation",
+        "creative_recommendation"
+    ],
+    "campaign_name": null,
+    "analysis_window_days": 30,
+    "metrics_focus": [
+        "ctr"
+    ],
+    "agent_flow": [
+        "data_agent",
+        "insight_agent",
+        "creative_agent"
+    ]
+}
