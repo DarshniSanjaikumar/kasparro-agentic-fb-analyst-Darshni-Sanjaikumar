@@ -5,7 +5,7 @@ from src.utils.data_utils import load_csv_data
 from src.utils.logging_utils import log_info, log_error
 
 class DataAgent:
-    def __init__(self, file_path="data/cleaned_data.csv"):
+    def __init__(self, file_path="data/clean.csv"):
         self.file_path = file_path
         self.data = load_csv_data(file_path)
 
